@@ -1,0 +1,211 @@
+# ============================================================
+#  AI Avatar Frame — saari settings ek jagah
+# ============================================================
+# - Relative paths project root se resolve hote hain.
+# - Secrets (future API keys) yahan NAHI, config/.env me rakho
+#   (config/.env.example dekho). Abhi sab offline hai, koi key nahi chahiye.
+# - Purane LIVING_* environment variables ab bhi kaam karte hain aur
+#   in values ko override karte hain.
+# - Value 0 for "threads" = device profile ke hisaab se auto.
+
+[device]
+# auto | pc | pi4
+# pi4 = Raspberry Pi 4 (4 GB) ke liye halki settings (kam threads, chhota context).
+# auto = Raspberry Pi detect hua to pi4, warna pc.
+profile = "auto"
+
+[logging]
+# DEBUG | INFO | WARNING | ERROR
+level = "INFO"
+
+[persona]
+# Default persona. Baad me har avatar ka apna persona hoga (Step 2.1).
+name = "Living Avatar"
+speaking_style = "friendly, natural and concise"
+# English sawaal → English jawab; Hindi/Hinglish sawaal → Hindi jawab (Devanagari, Hindi voice ke liye)
+reply_language = "english"
+# female | male — Hindi kriya isi hisaab se ("karti hoon" / "karta hoon"). Voice bhi wahi chuno (neeche TTS section).
+gender = "female"
+
+[stt]
+# auto  = online dimaag (Gemini) se sunna: ~1-2 s, saaf Hindi (Devanagari). Aapki recording
+#         [online_ai] provider (Google) ko jaati hai. Internet/key na ho to local Whisper.
+# local = hamesha local Whisper (offline, recording computer se bahar nahi jaati; is purane
+#         laptop par dheema: 3-10 s+, camera analysis ke saath aur bhi zyada)
+provider = "auto"
+# Khaali = [online_ai] wala model
+online_model = ""
+# Neeche: local Whisper (faster-whisper, offline) ki settings
+# Khaali = apne aap: PC par "base" (Hindi/Hinglish behtar, ~2-4 s), Pi 4 par "tiny" (tez).
+model_path = ""
+compute_type = "int8"
+threads = 0
+# hi   = Hindi + Hinglish + English shabd (recommended; English shabd Roman me hi aate hain)
+# en   = sirf English bolne wale (cafe me baad me)
+# auto = har baar bhasha pehchaano (+~2 s, aur Hinglish ko kabhi Spanish/Urdu samajh leta hai)
+language = "hi"
+beam_size = 3
+# Naam / khaas shabd jo sahi likhe jaane chahiye (comma se alag), Whisper "hotwords" ke roop me.
+# Sirf naam/shabd likho, poore vaakya nahi (vaakya Whisper shor me copy kar deta hai).
+# Example: "Arjun, Sharma, masala chai"
+hint_words = "Arjun"
+# Whisper ka bharosa isse kam ho (aur sawaal ready list me na ho) to avatar "phir se boliye" kahe.
+# -0.8 = normal | -0.6 = zyada sakht (zyada baar poochhega) | -1.0 = dheela
+min_confidence = -0.8
+# Online dimaag ke saath: wo galat sune shabd bhi context se samajh leta hai ("Abhi Ka Samay Bhatau"
+# = "abhi ka samay batao"), isliye sirf bahut kharab sunaai par hi "phir se boliye" kahe.
+# Saaf Hindi bolne par bhi Whisper base aam taur par -0.9 se -1.3 deta hai.
+min_confidence_online = -1.8
+# true = backend terminal me dikhe ki Whisper ne kya suna (sirf is computer ke log me).
+# Awaaz ki pehchaan tune karne ke liye on hai; baad me false kar dena.
+log_transcripts = true
+
+[llm]
+# Local chatbot (llama.cpp, offline). enabled = false karne par LLM band.
+enabled = true
+# Khaali = .tools/llama-cpp/llama-server(.exe) — OS ke hisaab se
+executable = ""
+model_path = ".tools/models/Qwen3-0.6B-Q8_0.gguf"
+port = 8091
+threads = 0
+# 0 = profile ke hisaab se (pc: 4096, pi4: 2048)
+context = 0
+temperature = 0.3
+max_tokens_short = 100
+max_tokens_normal = 220
+idle_unload_seconds = 300
+# false = online dimaag fail ho to chhota local model jawab NAHI deta (uske jawab ajeeb the aur laptop
+# par load padta tha); avatar seedha "internet dheema hai, phir boliye" kehta hai.
+# true = internet na ho tab bhi local model se (kamzor) jawab.
+local_fallback = false
+
+[tts]
+# auto  = Microsoft ki insaan jaisi Hindi awaaz (online, edge-tts, free, koi key nahi);
+#         internet na ho to Piper (offline Hindi), wo bhi na ho to Windows voice
+# edge  = wahi (online pehle, phir offline) | piper = sirf offline Piper | sapi = purani Windows voice
+provider = "auto"
+# Online awaaz. Khaali = persona gender ke hisaab se:
+#   hi-IN-SwaraNeural (female, bahut natural)  |  hi-IN-MadhurNeural (male)
+# Hindi, Hinglish aur English teeno smoothly bolti hai.
+edge_voice = ""
+# Bolne ki speed aur pitch: "-10%" = thoda dheere, "+10%" = thoda tez; pitch "+0Hz", "-5Hz" ...
+edge_rate = "+0%"
+edge_pitch = "+0Hz"
+# Itne seconds me online awaaz na mile to offline awaaz (aur agle 60 s offline hi)
+edge_timeout_seconds = 8
+# .tools/models/piper/ me rakhi voice ka naam:
+#   hi_IN-priyamvada-medium  (female)   |   hi_IN-pratham-medium  (male)
+voice = "hi_IN-priyamvada-medium"
+# 1.0 = normal, 0.9 = thoda dheere, 1.1 = thoda tez
+speed = 1.0
+# Sirf Windows (sapi) voice ke liye: words per minute
+rate_wpm = 175
+
+[online_ai]
+# Online dimaag: insaan ki tarah sochkar, jo aap bolo usi par jawab, achhi Hindi me.
+# API key config/.env me daalo (config/.env.example dekho). Key na ho ya internet na ho
+# to upar wala local [llm] jawab deta hai — app kabhi band nahi hota.
+# gemini (GEMINI_API_KEY, free key: https://aistudio.google.com/apikey) | groq (GROQ_API_KEY) |
+# openai (OPENAI_API_KEY) | none = sirf local
+provider = "gemini"
+# Khaali = default: gemini → "gemini-3.5-flash-lite" (~1.5 s me bolna shuru, achhi Hindi),
+# groq → "llama-3.3-70b-versatile", openai → "gpt-5-mini"
+model = ""
+# Pehla model busy/slow ho to ye try hote hain (comma se alag). Khaali = gemini ke liye
+# "gemini-3.1-flash-lite, gemini-3.5-flash". Sab fail ho to local [llm] jawab deta hai.
+fallback_models = ""
+# Khaali = provider ka apna address (kisi aur OpenAI-compatible service ke liye yahan URL)
+base_url = ""
+# Jawab se pehle kitna sochna hai (Gemini/OpenAI): "" | minimal | low | medium | high
+# "" = model khud tay kare (Gemini 3 hamesha thoda sochta hai; sabse tez, recommended).
+# low/medium/high = zyada soch, par jawab der se (Gemini par kabhi 20 s+).
+thinking = ""
+# 0.0 = hamesha ek jaisa, 1.0 = zyada natural/alag-alag
+temperature = 0.8
+# Itne seconds me pehla shabd na aaye to agla model (phir local)
+first_word_seconds = 8
+max_tokens = 2048
+
+[vision]
+# Camera eye tracking (Step 1 me use hoga). Camera na mile to app bina tracking ke chalega.
+enabled = true
+camera_index = 0
+# 640x480 = saaf live preview; tracking andar 320 px par hota hai (tez). Purane/dheeme PC par 320x240.
+width = 640
+height = 480
+fps = 15
+# Laptop/webcam ki image mirror hoti hai; true = avatar aapki taraf hi dekhe
+mirror = true
+# Baayein taraf live camera panel (green tracking box, chehre ke points, sir ke angles, event log).
+# Video sirf is computer par dikhti hai; kuch save nahi hota.
+preview = true
+# Chehre ke bhaav (khush, hans rahe, udaas, ro rahe, gussa, hairan, tension, thakaan...) aur haath ke
+# ishaare (sir par haath, thoddi par haath, chehra dhakna, thumbs up, hello...) padhna.
+# AI ko pata rehta hai ki aap kaise dikh rahe ho. Purane CPU par ~1 core leta hai.
+analysis = true
+# Bhaav padhne ki speed (baar per second). 4 = achha + halka; 2 = bahut purana PC.
+analysis_fps = 2.0
+# true = koi bhaav kuch der dikhe (tension, udaasi, zor se hansi...) to avatar khud pooche/react kare
+react_to_feelings = true
+
+[conversation]
+# true = page khulte hi mic sunna shuru (hands-free). Page par HANDS-FREE button se bhi on/off hota hai.
+hands_free = false
+# Aap chup hone ke kitne milliseconds baad recording band ho (kam = jaldi jawab, zyada = beech me rukne ki chhoot)
+end_silence_ms = 650
+# Avatar bolte waqt aap bolo to wo ruk jaye (interrupt). Laptop speaker par avatar apni hi awaaz
+# sun kar khud ko rok sakta hai, isliye default off. Headphones / echo-cancel speaker ke saath on karo.
+allow_interrupt = false
+# Camera par koi naya aaye to avatar khud "Namaste" bole (naam pata na ho to poochhe)
+greet_on_arrival = true
+# true = sirf tab suno jab camera par koi saamne ho (galat trigger kam, privacy zyada)
+listen_only_when_present = false
+# true = app khulte hi avatar khud baat-cheet shuru kare (hands-free on + greeting).
+# Laptop browser pehle ek tap maangta hai ("Tap to start"); Pi kiosk me apne aap.
+start_on_load = true
+# true = start par hamesha naam poochhe aur jo naam bolo wo save kare (naya insaan ho sakta hai)
+ask_name_on_start = true
+# Pehle se likhe jawab (Hindi / English / Hinglish). Match na ho to local AI jawab deta hai.
+# [llm] enabled = false ho to match na hone par "samjha nahi" wala fallback jawab aata hai.
+canned_replies = true
+replies_file = "config/replies.json"
+# false = online dimaag mile to pehle se likhe jawab NAHI (har baat ka asli, soch-samajh kar jawab);
+# internet/key na ho to ready-made jawab phir se chalte hain. true = online me bhi ready-made pehle.
+canned_replies_when_online = false
+
+[news]
+# "Aaj ki news" ke liye. Internet ho to headlines laata hai, na ho to aakhri saved headlines.
+# Sirf headlines padhi jaati hain; aapki koi jaankari bheji nahi jaati.
+enabled = true
+feed_url = "https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en"
+# Hindi baat-cheet me Hindi headlines (Hindi voice inhe natural padhti hai)
+feed_url_hi = "https://news.google.com/rss?hl=hi&gl=IN&ceid=IN:hi"
+max_items = 3
+timeout_seconds = 4
+cache_minutes = 30
+
+[neural]
+# Photo ko neural (LivePortrait) face me badalna. PC par ~1.5 min me taiyaar; Raspberry Pi par
+# bahut dheema aur garam (isliye neeche [pi.neural] me band). avtars/ folder ki photos PC par
+# pehle se taiyaar hoti hain (backend/scripts/prepare_avatars.py) aur Pi par turant chalti hain.
+enabled = true
+
+# ============================================================
+#  Raspberry Pi (5, 4 GB) — ye values Pi par upar wali settings ki jagah lagti hain.
+#  Laptop/PC par inka koi asar nahi. Maqsad: kam garmi, kam load, phir bhi sab chale.
+# ============================================================
+[pi.vision]
+# Chhoti camera image aur kam baar bhaav padhna = CPU kam, garmi kam
+width = 480
+height = 360
+fps = 12
+analysis_fps = 1.0
+
+[pi.neural]
+# Nayi photo ka neural face Pi par nahi banta (20-30 min, bahut garmi). avtars/ wali photos
+# pehle se taiyaar aati hain; nayi photo halke (lightweight) animation se chalti hai.
+enabled = false
+
+[pi.stt]
+# Internet na ho to local Whisper "tiny" (Pi par tez)
+model_path = ".tools/models/faster-whisper-tiny"

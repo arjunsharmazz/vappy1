@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "avatar_id": "022cc727-5c74-5f88-86d7-2570e590d8c7",
+  "face_detected": true,
+  "status": "ready",
+  "message": "Avatar Ready",
+  "image_url": "/avatar/022cc727-5c74-5f88-86d7-2570e590d8c7/image",
+  "schema_version": 2,
+  "image_width": 452,
+  "image_height": 678,
+  "face_box": {
+    "x": 138.0,
+    "y": 138.0,
+    "width": 214.0,
+    "height": 214.0
+  },
+  "landmarks": {
+    "left_eye": {
+      "x": 209.87699955701828,
+      "y": 211.66671681404114,
+      "width": 36.72719736179632,
+      "height": 18.36359868089816,
+      "source": "mediapipe"
+    },
+    "right_eye": {
+      "x": 276.2444862127304,
+      "y": 236.84550297260284,
+      "width": 42.9201864600062,
+      "height": 21.4600932300031,
+      "source": "mediapipe"
+    },
+    "mouth": {
+      "x": 212.4995801448822,
+      "y": 300.59644389152527,
+      "width": 64.7252789206561,
+      "height": 22.98983193133278,
+      "source": "mediapipe"
+    },
+    "face_center": {
+      "x": 239.47048807144165,
+      "y": 249.35185959935188
+    }
+  },
+  "animation_available": true,
+  "landmark_method": "mediapipe_face_mesh",
+  "warning": null,
+  "gender": "female",
+  "gender_confidence": 0.73,
+  "library_name": "Images",
+  "source_file": "images.jfif",
+  "source_sha256": "e3884582e8ef27fcfa414ba0aa0db400cdc7cd6a4cafb3323f206d2fc2a9a168",
+  "prepared_atlas": "4ed6de8f92fbb5596cbe4cf7e7c85caaac7fb234b14df52d2a685347a7aacd4a"
+}

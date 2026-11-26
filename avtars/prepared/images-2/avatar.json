@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "avatar_id": "f1034574-19ef-59f3-a1a6-624824284ada",
+  "face_detected": true,
+  "status": "ready",
+  "message": "Avatar Ready",
+  "image_url": "/avatar/f1034574-19ef-59f3-a1a6-624824284ada/image",
+  "schema_version": 2,
+  "image_width": 452,
+  "image_height": 678,
+  "face_box": {
+    "x": 117.0,
+    "y": 128.0,
+    "width": 232.0,
+    "height": 232.0
+  },
+  "landmarks": {
+    "left_eye": {
+      "x": 194.43151891231537,
+      "y": 223.70927055180073,
+      "width": 45.63547110908845,
+      "height": 22.817735554544225,
+      "source": "mediapipe"
+    },
+    "right_eye": {
+      "x": 275.19562101364136,
+      "y": 222.77447144687176,
+      "width": 45.282081425763856,
+      "height": 22.641040712881928,
+      "source": "mediapipe"
+    },
+    "mouth": {
+      "x": 237.05437886714935,
+      "y": 322.0046638548374,
+      "width": 79.39692453213743,
+      "height": 24.74575613225969,
+      "source": "mediapipe"
+    },
+    "face_center": {
+      "x": 236.17993500828743,
+      "y": 257.3884702697396
+    }
+  },
+  "animation_available": true,
+  "landmark_method": "mediapipe_face_mesh",
+  "warning": null,
+  "gender": "male",
+  "gender_confidence": 0.73,
+  "library_name": "Images",
+  "source_file": "images (2).jfif",
+  "source_sha256": "27517867c10df402391ac0c24b4c24c9d0589f7499fbf12532a9f8bf85c5d6e9",
+  "prepared_atlas": "3f5b017c83213baccd64d97d749e16a927af9e9da1c3546821b5ea31bb9c8cb4"
+}

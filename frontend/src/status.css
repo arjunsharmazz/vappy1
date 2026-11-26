@@ -1,0 +1,49 @@
+/* Status panel on the right of the avatar: what is happening, how long it takes. */
+:root {
+  --st-bg: rgba(8, 12, 20, .78);
+  --st-line: rgba(140, 170, 255, .22);
+  --st-text: #e4ebff;
+  --st-dim: #8a96b8;
+  --st-ok: #2bff88;
+  --st-slow: #ffc53d;
+  --st-late: #ff6b6b;
+}
+.status-panel { position: fixed; right: 14px; top: 170px; width: 250px; z-index: 24; padding: 16px 14px 12px;
+  background: var(--st-bg); border: 1px solid var(--st-line); border-radius: 14px; backdrop-filter: blur(10px);
+  color: var(--st-text); text-align: center; font-family: "Nirmala UI", "Noto Sans Devanagari", system-ui, sans-serif;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .4); }
+.status-emoji { font-size: 54px; line-height: 1.1; }
+.s-hearing .status-emoji, .s-ready .status-emoji { animation: st-pulse 1.4s ease-in-out infinite; }
+.s-thinking .status-emoji, .s-transcribing .status-emoji { animation: st-think 1.8s ease-in-out infinite; }
+.s-speaking .status-emoji, .s-noticing .status-emoji { animation: st-talk .5s ease-in-out infinite alternate; }
+@keyframes st-pulse { 50% { transform: scale(1.12); } }
+@keyframes st-think { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg) translateY(-3px); } }
+@keyframes st-talk { to { transform: scale(1.07); } }
+.status-label { margin-top: 6px; font-size: 18px; font-weight: 600; }
+.status-hint { margin-top: 2px; font-size: 11px; color: var(--st-dim); min-height: 14px; }
+.status-timer { margin-top: 8px; font: 600 15px ui-monospace, Consolas, monospace; }
+.status-timer.ok { color: var(--st-ok); } .status-timer.slow { color: var(--st-slow); } .status-timer.late { color: var(--st-late); }
+.status-level { display: flex; gap: 3px; justify-content: center; margin-top: 10px; height: 16px; align-items: flex-end; }
+.status-level i { width: 8px; height: 100%; border-radius: 2px; background: rgba(255, 255, 255, .12); }
+.status-level i.on { background: var(--st-ok); box-shadow: 0 0 6px var(--st-ok); }
+.status-flow { display: flex; justify-content: space-between; margin: 12px 4px 0; padding-top: 10px; border-top: 1px solid var(--st-line); }
+.status-flow span { font-size: 18px; opacity: .3; transition: opacity .2s, transform .2s; }
+.status-flow span.now { opacity: 1; transform: scale(1.25); }
+.status-last { margin-top: 10px; }
+.status-last small, .status-said small { display: block; color: var(--st-dim); font-size: 10px; letter-spacing: .06em; }
+.status-last p { margin: 3px 0 0; display: flex; flex-wrap: wrap; gap: 4px 8px; justify-content: center;
+  font: 12px ui-monospace, Consolas, monospace; }
+.status-last .slowstep { color: var(--st-slow); }
+.status-said { margin-top: 10px; text-align: left; }
+.status-said p { margin: 2px 0 0; font-size: 12.5px; line-height: 1.35; max-height: 3.9em; overflow: hidden; }
+.status-said.reply p { color: var(--st-dim); }
+/* Small screens: a compact bar at the bottom centre. */
+@media (max-width: 999px) {
+  .status-panel { top: auto; bottom: 10px; right: auto; left: 50%; transform: translateX(-50%); width: min(320px, calc(100vw - 20px));
+    padding: 8px 12px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; text-align: left; }
+  .status-emoji { font-size: 30px; grid-row: span 2; }
+  .status-label { margin: 0; font-size: 14px; }
+  .status-hint { grid-column: 2; }
+  .status-timer { grid-row: 1 / span 2; grid-column: 3; margin: 0; }
+  .status-level, .status-flow, .status-last, .status-said { display: none; }
+}

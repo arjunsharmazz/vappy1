@@ -1,0 +1,21 @@
+.speech-panel { width: 100%; max-width: 512px; padding: 20px; margin-top: 25px; background: linear-gradient(145deg,#171823,#10121c); border: 1px solid #b6a1e429; border-radius: 10px; box-shadow: 0 15px 40px #0003; }
+.speech-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 15px; }
+.speech-heading h2 { font-size: 10px; letter-spacing: 1.8px; color: #d7cef0; }
+.speech-heading > span { color: #9aaaac; font-size: 7px; letter-spacing: 1px; white-space: nowrap; }
+.speech-panel textarea { width: 100%; resize: vertical; min-height: 94px; max-height: 240px; border: 1px solid #ffffff14; background: #090c14; color: #e9e4f5; border-radius: 6px; padding: 13px; font: 13px/1.7 "Segoe UI",Arial,sans-serif; }
+.speech-panel textarea:focus { outline: 1px solid #bba6ed; border-color: #bba6ed; }
+.speech-panel textarea:disabled { opacity: .75; }
+.speech-panel textarea::placeholder { color: #797e91; }
+.speech-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+.character-count { font: 10px Consolas,monospace; color: #9a9aaf; }
+.stop-button { padding: 12px 27px; background: #50323f; color: #ffd2de; border: 1px solid #b7708944; border-radius: 6px; font-size: 12px; }
+.stop-button:hover { background: #654052; }
+.speech-feedback { margin: 13px 0 0; color: #a9b9b4; font-size: 10px; line-height: 1.6; }
+.speech-panel .animation-warning { text-align: left; margin-top: 12px; }
+.speech-debug { border-top: 1px solid #ffffff0c; margin-top: 14px; padding-top: 12px; color: #9393a7; font-size: 10px; }
+.speech-debug summary { cursor: pointer; }
+.speech-debug dl { display: grid; grid-template-columns: 100px 1fr; gap: 6px; margin-top: 12px; }
+.speech-debug dd { margin: 0; overflow-wrap: anywhere; color: #c0b4de; font-family: Consolas,monospace; }
+@media (max-width:480px) { .speech-panel { padding: 15px; }.speech-heading h2 { font-size: 9px; letter-spacing: 1px; } }
+
+.frame-stop { padding: 4px 8px; border-radius: 4px; border: 1px solid #b7708955; color: #ffd2de; background: #50323f; font-size: 8px; letter-spacing: 1px; }

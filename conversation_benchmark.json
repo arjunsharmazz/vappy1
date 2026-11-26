@@ -1,0 +1,239 @@
+{
+  "kind": "actual local CPU measurements",
+  "stt_engine": "faster-whisper 1.2.1 / CTranslate2",
+  "stt_model": "Whisper Tiny multilingual (39M)",
+  "stt_quantization": "int8 compute",
+  "llm_runtime": "llama.cpp",
+  "llm_model": "Qwen3-0.6B",
+  "llm_quantization": "Q8_0",
+  "model_files": [
+    {
+      "path": ".tools\\models\\manifest.json",
+      "bytes": 728,
+      "sha256": "633aeeb3cac38090e5bc4df7fb95b911b10923f1f326dacd4bba68679e327a30"
+    },
+    {
+      "path": ".tools\\models\\Qwen3-0.6B-Q8_0.gguf",
+      "bytes": 639446688,
+      "sha256": "9465e63a22add5354d9bb4b99e90117043c7124007664907259bd16d043bb031"
+    },
+    {
+      "path": ".tools\\models\\faster-whisper-tiny\\config.json",
+      "bytes": 2249,
+      "sha256": "a73a28cdfe1c43ccc7202fa333d1f89c202477271407ae9a7f19afa52039cac8"
+    },
+    {
+      "path": ".tools\\models\\faster-whisper-tiny\\model.bin",
+      "bytes": 75538270,
+      "sha256": "dcb76c6586fc06cbdac6dd21f14cfd129cc4cdd9dce19bf4ffa62e59cbe6e6d1"
+    },
+    {
+      "path": ".tools\\models\\faster-whisper-tiny\\tokenizer.json",
+      "bytes": 2203239,
+      "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab"
+    },
+    {
+      "path": ".tools\\models\\faster-whisper-tiny\\vocabulary.txt",
+      "bytes": 459861,
+      "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913"
+    }
+  ],
+  "runs": [
+    {
+      "input": "My name is Arjun.",
+      "response": "My name is Arjun.",
+      "llm_client_first_token_seconds": 7.557717300020158,
+      "llm_first_token_seconds": 7.524931100022513,
+      "llm_total_seconds": 7.8486573999980465,
+      "resources": {
+        "rss_bytes": 1282375680,
+        "system_available_bytes": 7602053120,
+        "process_cpu_percent": 171.65111046469136
+      }
+    },
+    {
+      "input": "What is my name?",
+      "response": "My name is Arjun.",
+      "llm_client_first_token_seconds": 1.193434700020589,
+      "llm_first_token_seconds": 1.1809998999815434,
+      "llm_total_seconds": 1.5321170999668539,
+      "resources": {
+        "rss_bytes": 1282392064,
+        "system_available_bytes": 7599276032,
+        "process_cpu_percent": 260.20352086324425
+      },
+      "memory_passed": true
+    },
+    {
+      "input": "नमस्ते, आप कैसे हैं?",
+      "response": "नमस्ते, आप कैसे हैं?",
+      "llm_client_first_token_seconds": 1.4173674999619834,
+      "llm_first_token_seconds": 1.4042802999611013,
+      "llm_total_seconds": 2.6965899000060745,
+      "resources": {
+        "rss_bytes": 1282838528,
+        "system_available_bytes": 7602970624,
+        "process_cpu_percent": 248.59339482996327
+      }
+    },
+    {
+      "input": "Mujhe ek short greeting do.",
+      "response": "नमस्ते!",
+      "llm_client_first_token_seconds": 1.310397399996873,
+      "llm_first_token_seconds": 1.2983041999978013,
+      "llm_total_seconds": 1.6830149000161327,
+      "resources": {
+        "rss_bytes": 1283612672,
+        "system_available_bytes": 7601147904,
+        "process_cpu_percent": 318.3759578177427
+      }
+    }
+  ],
+  "limitations": [
+    "Synthesized English fixture, not a human microphone accuracy test.",
+    "Hindi/Hinglish audio accuracy requires representative recordings.",
+    "API timings exclude browser playback; see browser_runs when present."
+  ],
+  "runtime_release": {
+    "tag": "b11146",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11146/llama-b11146-bin-win-cpu-x64.zip"
+  },
+  "clear_status": 200,
+  "fixture_tts_seconds": 0.9649861000361852,
+  "stt_runs": [
+    {
+      "load": "cold",
+      "text": "Hello, how are you? My name is Arjan.",
+      "language": "en",
+      "audio_duration_seconds": 3.990125,
+      "stt_seconds": 2.668304699996952,
+      "resources": {
+        "rss_bytes": 1416093696,
+        "system_available_bytes": 7410851840,
+        "process_cpu_percent": 158.8676618819182
+      },
+      "client_seconds": 2.71597209997708
+    },
+    {
+      "load": "warm",
+      "text": "Hello, how are you? My name is Arjan.",
+      "language": "en",
+      "audio_duration_seconds": 3.990125,
+      "stt_seconds": 1.2438345999689773,
+      "resources": {
+        "rss_bytes": 1417416704,
+        "system_available_bytes": 7381241856,
+        "process_cpu_percent": 221.49891538447997
+      },
+      "client_seconds": 1.294437900010962
+    }
+  ],
+  "status": "passed",
+  "resource_sample_count": 84,
+  "peak_backend_tree_rss_bytes": 1464016896,
+  "mean_system_cpu_percent": 83.45357142857142,
+  "browser_runs": [
+    {
+      "mode": "text",
+      "input": "Hello, how are you?",
+      "recording_duration_seconds": 0,
+      "tts_chunks_seconds": [
+        1.667199999988079,
+        1.631199999988079,
+        1.7959000000357628
+      ],
+      "time_until_avatar_speaks_seconds": 4.9595999999642375,
+      "total_including_recording_seconds": 4.9595999999642375,
+      "llm_first_token_seconds": 3.0256167000043206,
+      "llm_total_seconds": 13.256370800023433,
+      "resources": {
+        "rss_bytes": 989986816,
+        "system_available_bytes": 6962896896,
+        "process_cpu_percent": 33.59073311028652
+      },
+      "turn_finished_seconds": 15.51330000001192
+    },
+    {
+      "mode": "text",
+      "input": "My name is Arjun.",
+      "recording_duration_seconds": 0,
+      "tts_chunks_seconds": [
+        1.5964000000357628,
+        1.0145
+      ],
+      "time_until_avatar_speaks_seconds": 5.228899999976158,
+      "total_including_recording_seconds": 5.228899999976158,
+      "llm_first_token_seconds": 3.166466600028798,
+      "llm_total_seconds": 5.215076200023759,
+      "resources": {
+        "rss_bytes": 990056448,
+        "system_available_bytes": 8014176256,
+        "process_cpu_percent": 100.6914761761867
+      },
+      "turn_finished_seconds": 10.623299999952316
+    },
+    {
+      "mode": "text",
+      "input": "What is my name?",
+      "recording_duration_seconds": 0,
+      "tts_chunks_seconds": [
+        1.085199999988079
+      ],
+      "llm_first_token_seconds": 1.8178292000084184,
+      "llm_total_seconds": 2.505548999994062,
+      "resources": {
+        "rss_bytes": 1016840192,
+        "system_available_bytes": 8016232448,
+        "process_cpu_percent": 154.60410835022867
+      },
+      "time_until_avatar_speaks_seconds": 3.418600000023842,
+      "total_including_recording_seconds": 3.418600000023842,
+      "turn_finished_seconds": 5.351600000023842
+    },
+    {
+      "mode": "voice",
+      "fixture": "Windows TTS via Chrome virtual microphone",
+      "recording_duration_seconds": 4.765100000023842,
+      "tts_chunks_seconds": [
+        1.1299000000357629,
+        1.317899999976158
+      ],
+      "stt_seconds": 2.363165100046899,
+      "audio_duration_seconds": 4.74,
+      "stt_resources": {
+        "rss_bytes": 991838208,
+        "system_available_bytes": 7994888192,
+        "process_cpu_percent": 264.90488100119694
+      },
+      "llm_first_token_seconds": 1.084669700008817,
+      "llm_total_seconds": 1.869137400004547,
+      "resources": {
+        "rss_bytes": 1026707456,
+        "system_available_bytes": 7962157056,
+        "process_cpu_percent": 225.18842159768315
+      },
+      "time_until_avatar_speaks_seconds": 4.910399999976158,
+      "total_including_recording_seconds": 9.6755,
+      "turn_finished_seconds": 9.477899999976158
+    },
+    {
+      "mode": "text",
+      "input": "Say hello in one sentence.",
+      "recording_duration_seconds": 0,
+      "tts_chunks_seconds": [
+        1.284699999988079,
+        1.079800000011921
+      ],
+      "llm_first_token_seconds": 1.5925184999941848,
+      "llm_total_seconds": 2.4194743999978527,
+      "resources": {
+        "rss_bytes": 1031757824,
+        "system_available_bytes": 7895511040,
+        "process_cpu_percent": 149.8180898437996
+      },
+      "time_until_avatar_speaks_seconds": 3.063,
+      "total_including_recording_seconds": 3.063,
+      "turn_finished_seconds": 6.880699999988079
+    }
+  ]
+}

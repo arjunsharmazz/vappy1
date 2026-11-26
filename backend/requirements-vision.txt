@@ -1,0 +1,10 @@
+# Camera feelings & hand gestures (app/vision/analyzer.py). Install WITHOUT dependencies, because
+# mediapipe would otherwise add opencv-contrib-python next to opencv-python-headless (two cv2
+# packages conflict):
+#   .venv\Scripts\python.exe -m pip install --no-deps -r requirements-vision.txt
+#   .venv\Scripts\python.exe -m pip install matplotlib
+# Models go in .tools/models/vision/ (face_landmarker.task, gesture_recognizer.task from
+# storage.googleapis.com/mediapipe-models; enet_b0_8_best_afew.onnx from
+# github.com/av-savchenko/face-emotion-recognition). Without them the app runs, just without feelings.
+mediapipe==1.2.3
+absl-py==2.5.1

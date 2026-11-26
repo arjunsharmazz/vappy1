@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "avatar_id": "8d5dd1f6-41cf-5cf3-a619-2229b6865a95",
+  "face_detected": true,
+  "status": "ready",
+  "message": "Avatar Ready",
+  "image_url": "/avatar/8d5dd1f6-41cf-5cf3-a619-2229b6865a95/image",
+  "schema_version": 2,
+  "image_width": 672,
+  "image_height": 1008,
+  "face_box": {
+    "x": 99.60225140712946,
+    "y": 229.46341463414635,
+    "width": 392.1050656660413,
+    "height": 392.1050656660413
+  },
+  "landmarks": {
+    "left_eye": {
+      "x": 215.5709352493286,
+      "y": 390.0277644395828,
+      "width": 78.58274993315928,
+      "height": 39.29137496657964,
+      "source": "mediapipe"
+    },
+    "right_eye": {
+      "x": 364.4134941101074,
+      "y": 388.97464871406555,
+      "width": 89.9825573989868,
+      "height": 44.9912786994934,
+      "source": "mediapipe"
+    },
+    "mouth": {
+      "x": 286.46902656555176,
+      "y": 550.4154081344604,
+      "width": 144.59542083346116,
+      "height": 48.902651747250346,
+      "source": "mediapipe"
+    },
+    "face_center": {
+      "x": 306.30298018455505,
+      "y": 439.14566016197205
+    }
+  },
+  "animation_available": true,
+  "landmark_method": "mediapipe_face_mesh",
+  "warning": null,
+  "gender": "female",
+  "gender_confidence": 0.73,
+  "library_name": "Deppika Padukon",
+  "source_file": "deppika padukon.jpg",
+  "source_sha256": "19fb1b51fe2e7567063bb34b4e425012d93316c11f1e945e2f7d6045bf6debd8",
+  "prepared_atlas": "8c3f6d8ac0d1f8c068f3ca9e2d9472355cf5fb912e978b25cb9dd37451ca357b"
+}

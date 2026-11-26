@@ -1,0 +1,16 @@
+/* Facial motion stays inside the original frame. */
+.avatar-viewer { position: relative; width: 100%; height: 100%; }
+.avatar-canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.frame { box-shadow: 0 25px 70px #0009, 0 0 45px #8770f012, inset 0 0 0 4px #0c0e1470; }
+.frame-caption, .frame-corner { pointer-events: none; }
+.live-line { display: flex; align-items: center; gap: 12px; color: #9c9aaf; font-size: 8px; letter-spacing: 1.8px; margin: -9px 0 10px; }
+.live-dot { color: #99dfb9; }
+.avatar-id { font: 8px Consolas, monospace; color: #858b9e; margin: 0 0 15px; overflow-wrap: anywhere; text-align: center; }
+.animation-warning { font-size: 11px; color: #e8b49a; max-width: 440px; text-align: center; margin: 0 0 14px; line-height: 1.6; }
+.control:enabled { color: #d8cefa; background: #201d2e; border-color: #a590d43b; }
+.control:enabled:hover { background: #302940; border-color: #b9a1e6; }
+.control .control-name { color: inherit; font-size: 11px; background: none; letter-spacing: 0; display: inline; }
+.small-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+.small-controls button { color: #b4a9ce; font-size: 10px; padding: 5px 9px; border-radius: 4px; border: 1px solid #ffffff0d; }
+.small-controls button:hover:enabled { background: #ffffff09; }
+.small-controls button:disabled { color: #646779; }

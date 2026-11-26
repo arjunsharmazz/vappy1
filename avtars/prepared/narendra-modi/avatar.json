@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "avatar_id": "5b43af02-c01c-5df0-832a-c947ef3b12e9",
+  "face_detected": true,
+  "status": "ready",
+  "message": "Avatar Ready",
+  "image_url": "/avatar/5b43af02-c01c-5df0-832a-c947ef3b12e9/image",
+  "schema_version": 2,
+  "image_width": 440,
+  "image_height": 563,
+  "face_box": {
+    "x": 135.0,
+    "y": 52.0,
+    "width": 140.0,
+    "height": 140.0
+  },
+  "landmarks": {
+    "left_eye": {
+      "x": 179.3722653388977,
+      "y": 107.05730037018657,
+      "width": 27.98816803953484,
+      "height": 13.99408401976742,
+      "source": "mediapipe"
+    },
+    "right_eye": {
+      "x": 232.6053774356842,
+      "y": 104.49313424527645,
+      "width": 28.776390449593837,
+      "height": 14.388195224796918,
+      "source": "mediapipe"
+    },
+    "mouth": {
+      "x": 210.15458583831787,
+      "y": 163.79615879058838,
+      "width": 59.19476086942185,
+      "height": 16.397952168803446,
+      "source": "mediapipe"
+    },
+    "face_center": {
+      "x": 209.10623252391815,
+      "y": 130.3306428603828
+    }
+  },
+  "animation_available": true,
+  "landmark_method": "mediapipe_face_mesh",
+  "warning": null,
+  "gender": "male",
+  "gender_confidence": 0.73,
+  "library_name": "Narendra Modi",
+  "source_file": "narendra-modi.jpg",
+  "source_sha256": "fab511be0eeece05d2b054f69281a014e0ae37ad1fc45e5368ae562090e2f1b4",
+  "prepared_atlas": "3e4a3566f333cddf5c409f934a12adbd8ee89affbe78c97c0c98f4ea80c46003"
+}

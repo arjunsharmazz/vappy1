@@ -1,0 +1,61 @@
+/* Live camera tracking panel (left side). Dark "HUD" look with green tracking accents. */
+:root {
+  --cam-bg: rgba(6, 10, 14, .82);
+  --cam-line: rgba(43, 255, 136, .22);
+  --cam-green: #2bff88;
+  --cam-text: #cfe9dc;
+  --cam-dim: #6f8a7d;
+}
+.cam-panel { position: fixed; left: 12px; top: 12px; bottom: 12px; width: 340px; z-index: 25; display: flex; flex-direction: column;
+  background: var(--cam-bg); border: 1px solid var(--cam-line); border-radius: 10px; backdrop-filter: blur(10px);
+  color: var(--cam-text); font: 12px/1.4 ui-monospace, "Cascadia Mono", Consolas, monospace; overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .45); }
+.cam-head { display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-bottom: 1px solid var(--cam-line); letter-spacing: .08em; }
+.cam-head b { color: var(--cam-green); }
+.cam-head span { color: var(--cam-dim); font-size: 11px; }
+.cam-head button { margin-left: auto; background: none; border: 0; color: var(--cam-dim); cursor: pointer; font-size: 14px; }
+.cam-head button:hover { color: var(--cam-text); }
+.cam-dot { width: 8px; height: 8px; border-radius: 50%; background: #555; }
+.cam-dot.on { background: #ff3b3b; box-shadow: 0 0 8px #ff3b3b; animation: cam-blink 1.2s infinite; }
+@keyframes cam-blink { 50% { opacity: .35; } }
+.cam-view { position: relative; aspect-ratio: 4 / 3; background: #000; border-bottom: 1px solid var(--cam-line); flex: none; }
+.cam-view img, .cam-view canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cam-view img { object-fit: fill; }
+.cam-wait { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  padding: 0 18px; text-align: center; color: var(--cam-dim); font-family: "Nirmala UI", system-ui, sans-serif; z-index: 1; }
+.cam-wait p { margin: 0; }
+.cam-enable { padding: 6px 12px; border-radius: 16px; border: 1px solid var(--cam-green); background: transparent; color: var(--cam-green); cursor: pointer; font: 11px ui-monospace, Consolas, monospace; }
+.cam-corner { position: absolute; top: 6px; font-size: 10px; color: var(--cam-green); text-shadow: 0 0 4px #000; letter-spacing: .06em; }
+.cam-corner.tl { left: 8px; } .cam-corner.tr { right: 8px; }
+.cam-hud { flex: 1; min-height: 0; overflow-y: auto; padding: 10px 12px 8px; display: flex; flex-direction: column; gap: 10px; }
+.cam-feeling small, .cam-grid small { display: block; color: var(--cam-dim); font-size: 10px; letter-spacing: .1em; }
+.cam-feeling strong { display: block; font: 600 22px/1.25 "Noto Sans Devanagari", "Nirmala UI", system-ui, sans-serif; color: #fff; }
+.cam-feeling span { color: var(--cam-green); font-size: 11px; }
+.cam-bars { display: flex; flex-direction: column; gap: 3px; }
+.cam-bars div { display: grid; grid-template-columns: 96px 1fr 34px; align-items: center; gap: 6px; font-size: 10px; color: var(--cam-dim); }
+.cam-bars div.top { color: var(--cam-text); }
+.cam-bars i { height: 5px; border-radius: 3px; background: rgba(43, 255, 136, .35); transition: width .25s; }
+.cam-bars div.top i { background: var(--cam-green); box-shadow: 0 0 6px var(--cam-green); }
+.cam-bars em { font-style: normal; text-align: right; }
+.cam-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.cam-chips span { padding: 2px 8px; border: 1px solid #ffc53d; color: #ffc53d; border-radius: 10px;
+  font: 12px "Noto Sans Devanagari", "Nirmala UI", system-ui, sans-serif; }
+.cam-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.cam-grid div:last-child { grid-column: span 2; }
+.cam-grid div { border: 1px solid var(--cam-line); border-radius: 6px; padding: 4px 6px; }
+.cam-grid b { color: #fff; font-size: 13px; }
+.cam-log { border: 1px solid var(--cam-line); border-radius: 6px; padding: 6px 8px; background: rgba(0, 0, 0, .35); min-height: 96px;
+  font-size: 10.5px; font-family: ui-monospace, Consolas, "Nirmala UI", monospace; }
+.cam-log p { margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--cam-text); }
+.cam-log time { color: var(--cam-dim); }
+.cam-log .lock { color: var(--cam-green); } .cam-log .lost { color: #ff7a7a; } .cam-log .dim { color: var(--cam-dim); }
+.cam-note { margin: 0; color: var(--cam-dim); font-size: 10px; text-align: center; }
+.cam-toggle { position: fixed; left: 14px; bottom: 14px; z-index: 25; padding: 7px 12px; border-radius: 18px; cursor: pointer;
+  background: var(--cam-bg); border: 1px solid var(--cam-line); color: var(--cam-green); font: 12px ui-monospace, Consolas, monospace; }
+/* The portrait moves right so the panel does not cover it on wide screens. */
+@media (min-width: 1000px) { .stage.with-camera .stage-main { left: 360px; } }
+/* Small screens: a compact floating preview in the bottom-left corner. */
+@media (max-width: 999px) {
+  .cam-panel { top: auto; bottom: 10px; left: 10px; width: min(220px, calc(100vw - 20px)); }
+  .cam-hud { display: none; }
+}

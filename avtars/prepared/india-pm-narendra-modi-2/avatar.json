@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "avatar_id": "a3bd3796-6087-538c-8003-b3b737122277",
+  "face_detected": true,
+  "status": "ready",
+  "message": "Avatar Ready",
+  "image_url": "/avatar/a3bd3796-6087-538c-8003-b3b737122277/image",
+  "schema_version": 2,
+  "image_width": 1288,
+  "image_height": 1289,
+  "face_box": {
+    "x": 470.70838548185236,
+    "y": 188.60575719649563,
+    "width": 480.38047559449313,
+    "height": 480.38047559449313
+  },
+  "landmarks": {
+    "left_eye": {
+      "x": 614.5719933509827,
+      "y": 376.2421415820718,
+      "width": 95.84748414155625,
+      "height": 47.923742070778125,
+      "source": "mediapipe"
+    },
+    "right_eye": {
+      "x": 781.577311038971,
+      "y": 375.45495664328337,
+      "width": 89.81632118308153,
+      "height": 44.908160591540764,
+      "source": "mediapipe"
+    },
+    "mouth": {
+      "x": 704.4447462558746,
+      "y": 561.8792907595634,
+      "width": 192.4948305013724,
+      "height": 60.50741652332603,
+      "source": "mediapipe"
+    },
+    "face_center": {
+      "x": 691.2185798883438,
+      "y": 456.13055097311735
+    }
+  },
+  "animation_available": true,
+  "landmark_method": "mediapipe_face_mesh",
+  "warning": null,
+  "gender": "male",
+  "gender_confidence": 0.73,
+  "library_name": "India Pm Narendra Modi",
+  "source_file": "India_PM_Narendra_Modi-2.jfif",
+  "source_sha256": "c381a7c34e6848424486e347893b7514e93a84921e2c713b6b0f78a8f7aba973",
+  "prepared_atlas": "13d26b76b499fb08575df84abcf8efc0c9b9b3719764580c21b6b2aeb3acf20e"
+}

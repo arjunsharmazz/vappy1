@@ -1,0 +1,24 @@
+.conversation-panel { width: 100%; max-width: 640px; margin: 24px auto 0; padding: 20px; border: 1px solid #ffffff20; border-radius: 16px; background: #111922; }
+.conversation-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.conversation-heading h2 { font-size: 12px; letter-spacing: .12em; }
+.conversation-heading span { font-size: 10px; color: #9ed9c9; }
+.conversation-panel button, .conversation-panel select { padding: 9px 12px; border: 1px solid #ffffff30; border-radius: 8px; background: #24323b; color: #edf6f5; font-size: 12px; }
+.conversation-panel button:disabled { opacity: .4; cursor: not-allowed; }
+.conversation-panel button:focus-visible, .conversation-panel input:focus-visible { outline: 2px solid #9ed9c9; outline-offset: 3px; }
+.conversation-panel [role=status] { font-size: 11px; letter-spacing: .1em; color: #9ed9c9; margin: 14px 0; }
+.conversation-panel [role=alert] { color: #ffbcb1; font-size: 13px; margin-top: 12px; }
+.conversation-actions, .conversation-input { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.conversation-input input { flex: 1; min-width: 120px; border: 1px solid #ffffff25; border-radius: 8px; background: #0e141c; padding: 10px; color: #fff; }
+.conversation-transcript { max-height: 180px; overflow-y: auto; margin-top: 14px; font-size: 14px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.conversation-transcript p { margin: 10px 0; line-height: 1.5; }
+.conversation-transcript b { display: block; font-size: 9px; color: #a8b4c2; letter-spacing: .12em; }
+.conversation-settings { margin-top: 16px; font-size: 12px; color: #b9c5d0; }
+.conversation-settings label { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; }
+.conversation-settings select { max-width: 65%; }
+.conversation-note { font-size: 11px; color: #97a6b5; margin-top: 12px; line-height: 1.5; }
+.neural-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; z-index: 2; background: #0e141c; }
+
+/* Hands-free listening */
+.conversation-actions .hands-free-on { border-color: #4ade80; color: #bbf7d0; box-shadow: 0 0 0 1px #4ade8055 inset; }
+.hands-free-meter { height: 4px; margin: 6px 0 10px; background: #ffffff14; border-radius: 2px; overflow: hidden; }
+.hands-free-meter i { display: block; height: 100%; background: #4ade80; transition: width .1s linear; }

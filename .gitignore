@@ -1,0 +1,46 @@
+﻿# ---- Secrets: API keys stay on each device (copy config/.env.example → config/.env) ----
+.env
+**/.env
+!config/.env.example
+
+# ---- Python environments and caches ----
+backend/.venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# ---- Downloaded models and tools (backend/scripts/download_models.py fetches them) ----
+.tools/
+third_party/SadTalker/
+third_party/MuseTalk/
+third_party/LivePortrait/
+
+# ---- Frontend: dependencies and build output (built on each device) ----
+frontend/node_modules/
+frontend/dist/
+
+# ---- Personal data created while using the frame (photos, memory, voice cache) ----
+uploads/*
+!uploads/.gitkeep
+avatar_data/*
+!avatar_data/.gitkeep
+samples/
+
+# ---- Temporary / half-written files ----
+*.log
+*.part
+*.pending.*
+*.tmp
+
+# ---- OS and editor files ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+.claude/
+
+# avtars/ (ready-made avatars + avtars/prepared bundles) IS committed: the Pi needs it.

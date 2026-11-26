@@ -1,0 +1,3099 @@
+{
+  "_help": [
+    "Ready-made replies. Matching is offline and instant; the local AI is used only when nothing matches.",
+    "patterns.en = English phrases, patterns.hinglish = Hindi in Roman letters, patterns.hi = Hindi in Devanagari.",
+    "English input gets replies.en. Hindi or Hinglish input gets replies.hinglish, written in DEVANAGARI so the Hindi voice sounds natural (Roman Hinglish is read with an English accent).",
+    "Write verbs in the masculine form (karta hoon / करता हूँ). With persona gender = female the app changes them (करती हूँ, रखूँगी) automatically.",
+    "Placeholders: {name} avatar name, {user} the person's name, {time} {date} {day} (English), {time_hi} {date_hi} {day_hi} (Hindi, e.g. रात के 9 बजकर 15 मिनट).",
+    "Name, remember/recall, news and maths are handled in code (backend/app/brain/skills.py), not here.",
+    "You can edit this file while the app runs; changes are picked up on the next message."
+  ],
+  "intents": [
+    {
+      "id": "greeting",
+      "patterns": {
+        "en": [
+          "hi",
+          "hello",
+          "hey",
+          "hey there",
+          "hi there",
+          "hello there",
+          "good to see you"
+        ],
+        "hinglish": [
+          "namaste",
+          "namaskar",
+          "ram ram",
+          "jai shree krishna",
+          "radhe radhe",
+          "salaam",
+          "kya haal hai",
+          "hello ji",
+          "hi ji"
+        ],
+        "hi": [
+          "नमस्ते",
+          "नमस्कार",
+          "राम राम",
+          "हेलो",
+          "हाय",
+          "क्या हाल है",
+          "सलाम"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Hi {user}! It's so nice to see you.",
+          "Hey there {user}! I'm happy you're here."
+        ],
+        "hinglish": [
+          "नमस्ते {user}! आपको देखकर बहुत अच्छा लगा।",
+          "नमस्ते {user} जी! आपका स्वागत है।",
+          "अरे {user}, आ गए आप! बहुत अच्छा लगा।"
+        ]
+      }
+    },
+    {
+      "id": "whats_up",
+      "patterns": {
+        "en": [
+          "what's up",
+          "whats up",
+          "what is going on",
+          "what's going on",
+          "what's new",
+          "sup"
+        ],
+        "hinglish": [
+          "kya chal raha hai",
+          "aur kya chal raha hai",
+          "kya ho raha hai",
+          "aur batao",
+          "kya haal chaal",
+          "kya naya hai"
+        ],
+        "hi": [
+          "क्या चल रहा है",
+          "और क्या चल रहा है",
+          "क्या हो रहा है",
+          "और बताओ",
+          "क्या नया है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Not much, I was just waiting for you! It's {time} now. Would you like to hear the news?",
+          "All good here! Tell me, how's your day going?"
+        ],
+        "hinglish": [
+          "कुछ ख़ास नहीं, बस आपका इंतज़ार कर रहा था! अभी {time_hi} हो रहे हैं। न्यूज़ सुननी है?",
+          "सब बढ़िया! आप बताओ, आज का दिन कैसा जा रहा है?"
+        ]
+      }
+    },
+    {
+      "id": "about_you",
+      "patterns": {
+        "en": [
+          "tell me about yourself",
+          "about yourself",
+          "what are you",
+          "are you real",
+          "are you a robot"
+        ],
+        "hinglish": [
+          "apne baare mein batao",
+          "tum kya ho",
+          "kya tum asli ho",
+          "kya tum robot ho"
+        ],
+        "hi": [
+          "अपने बारे में बताओ",
+          "तुम क्या हो",
+          "क्या तुम असली हो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I'm {name}, a talking picture frame. I can chat, remember your name, tell the time, the news and do small sums."
+        ],
+        "hinglish": [
+          "मैं {name} हूँ, एक बोलने वाला फ़ोटो फ़्रेम। मैं बातें कर सकता हूँ, आपका नाम याद रख सकता हूँ, और टाइम, न्यूज़ और छोटा हिसाब भी बता सकता हूँ।"
+        ]
+      }
+    },
+    {
+      "id": "how_are_you",
+      "patterns": {
+        "en": [
+          "how are you",
+          "how are you doing",
+          "how is it going",
+          "how do you do",
+          "are you okay",
+          "how have you been"
+        ],
+        "hinglish": [
+          "kaise ho",
+          "kaise hain aap",
+          "kaise ho aap",
+          "kese ho",
+          "kaisi ho",
+          "tum kaise ho",
+          "aap kaise hain",
+          "sab theek",
+          "sab badhiya"
+        ],
+        "hi": [
+          "कैसे हो",
+          "कैसे हैं",
+          "आप कैसे हैं",
+          "तुम कैसे हो",
+          "कैसी हो",
+          "सब ठीक"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I'm doing great, thank you for asking! How about you?",
+          "I'm good! Seeing you makes my day better. How are you?"
+        ],
+        "hinglish": [
+          "मैं बिल्कुल ठीक हूँ, आप बताओ, आप कैसे हो?",
+          "मैं बढ़िया हूँ! आपको देखकर और अच्छा लग रहा है। आप कैसे हो?"
+        ]
+      }
+    },
+    {
+      "id": "i_am_fine",
+      "patterns": {
+        "en": [
+          "i am fine",
+          "i'm fine",
+          "i am good",
+          "i'm good",
+          "i am okay",
+          "doing well",
+          "i am great",
+          "fine thank you"
+        ],
+        "hinglish": [
+          "main theek hoon",
+          "mai thik hu",
+          "main thik hoon",
+          "badhiya hoon",
+          "main badhiya hoon",
+          "sab theek hai",
+          "achha hoon",
+          "main achha hoon"
+        ],
+        "hi": [
+          "मैं ठीक हूँ",
+          "मैं ठीक हूं",
+          "बढ़िया हूँ",
+          "सब ठीक है",
+          "मैं अच्छा हूँ",
+          "मैं अच्छी हूँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "That's wonderful to hear!",
+          "Great! I'm really happy to hear that."
+        ],
+        "hinglish": [
+          "यह सुनकर बहुत अच्छा लगा!",
+          "बढ़िया! ऐसे ही खुश रहो।"
+        ]
+      }
+    },
+    {
+      "id": "name",
+      "patterns": {
+        "en": [
+          "what is your name",
+          "what's your name",
+          "your name",
+          "tell me your name",
+          "who are you"
+        ],
+        "hinglish": [
+          "tumhara naam kya hai",
+          "aapka naam kya hai",
+          "tera naam kya hai",
+          "naam kya hai",
+          "tum kaun ho",
+          "aap kaun ho",
+          "kaun ho tum"
+        ],
+        "hi": [
+          "तुम्हारा नाम क्या है",
+          "आपका नाम क्या है",
+          "नाम क्या है",
+          "तुम कौन हो",
+          "आप कौन हैं"
+        ]
+      },
+      "replies": {
+        "en": [
+          "My name is {name}. I live in this frame and I'm always happy to talk.",
+          "I'm {name}! Your friendly companion in this frame."
+        ],
+        "hinglish": [
+          "मेरा नाम {name} है। मैं इस फ़्रेम में रहता हूँ और आपसे बात करके खुश होता हूँ।",
+          "मैं {name} हूँ, आपका अपना साथी।"
+        ]
+      }
+    },
+    {
+      "id": "good_morning",
+      "patterns": {
+        "en": [
+          "good morning",
+          "morning"
+        ],
+        "hinglish": [
+          "suprabhat",
+          "good morning ji",
+          "subah ho gayi"
+        ],
+        "hi": [
+          "सुप्रभात",
+          "गुड मॉर्निंग",
+          "शुभ प्रभात"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Good morning! I hope you slept well. Have a lovely day.",
+          "Good morning! Did you have your tea yet?"
+        ],
+        "hinglish": [
+          "गुड मॉर्निंग! नींद अच्छी आई? आज का दिन बहुत अच्छा जाए।",
+          "सुप्रभात! चाय पी ली आपने?"
+        ]
+      }
+    },
+    {
+      "id": "good_afternoon_evening",
+      "patterns": {
+        "en": [
+          "good afternoon",
+          "good evening"
+        ],
+        "hinglish": [
+          "shubh sandhya",
+          "good evening ji"
+        ],
+        "hi": [
+          "शुभ संध्या",
+          "गुड इवनिंग",
+          "गुड आफ्टरनून"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Good evening! How was your day?",
+          "Hello! I hope your day is going well."
+        ],
+        "hinglish": [
+          "गुड इवनिंग! आज का दिन कैसा रहा?",
+          "नमस्ते! उम्मीद है आपका दिन अच्छा जा रहा है।"
+        ]
+      }
+    },
+    {
+      "id": "good_night",
+      "patterns": {
+        "en": [
+          "good night",
+          "goodnight",
+          "going to sleep",
+          "time to sleep",
+          "sweet dreams"
+        ],
+        "hinglish": [
+          "shubh ratri",
+          "so raha hoon",
+          "so rahi hoon",
+          "sone ja raha hoon",
+          "sone ja rahi hoon",
+          "good night ji"
+        ],
+        "hi": [
+          "शुभ रात्रि",
+          "गुड नाइट",
+          "सोने जा रहा हूँ",
+          "सोने जा रही हूँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Good night! Sleep well and sweet dreams.",
+          "Good night. Rest well, I'll be right here tomorrow."
+        ],
+        "hinglish": [
+          "गुड नाइट! अच्छे से सोना, मीठे सपने।",
+          "शुभ रात्रि! आराम से सोना, मैं कल यहीं मिलूँगा।"
+        ]
+      }
+    },
+    {
+      "id": "thanks",
+      "patterns": {
+        "en": [
+          "thank you",
+          "thanks",
+          "thank you so much",
+          "thanks a lot",
+          "many thanks"
+        ],
+        "hinglish": [
+          "dhanyavaad",
+          "dhanyawad",
+          "shukriya",
+          "thank you ji",
+          "bahut shukriya"
+        ],
+        "hi": [
+          "धन्यवाद",
+          "शुक्रिया",
+          "थैंक यू",
+          "बहुत शुक्रिया"
+        ]
+      },
+      "replies": {
+        "en": [
+          "You're most welcome!",
+          "Anytime! I'm always here for you."
+        ],
+        "hinglish": [
+          "कोई बात नहीं, यह तो मेरा फ़र्ज़ है!",
+          "अरे, शुक्रिया की क्या बात है। मैं हमेशा यहीं हूँ।"
+        ]
+      }
+    },
+    {
+      "id": "bye",
+      "patterns": {
+        "en": [
+          "bye",
+          "goodbye",
+          "bye bye",
+          "see you",
+          "see you later",
+          "take care",
+          "talk to you later"
+        ],
+        "hinglish": [
+          "alvida",
+          "phir milenge",
+          "chalta hoon",
+          "chalti hoon",
+          "baad mein baat karte hain",
+          "bye ji",
+          "milte hain"
+        ],
+        "hi": [
+          "अलविदा",
+          "फिर मिलेंगे",
+          "चलता हूँ",
+          "चलती हूँ",
+          "बाय",
+          "बाद में बात करते हैं"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Bye! Take care, and come back soon.",
+          "See you soon! I'll be waiting right here."
+        ],
+        "hinglish": [
+          "बाय! अपना ख़याल रखना, जल्दी मिलना।",
+          "फिर मिलेंगे! मैं यहीं इंतज़ार करूँगा।"
+        ]
+      }
+    },
+    {
+      "id": "time",
+      "patterns": {
+        "en": [
+          "what time is it",
+          "what is the time",
+          "tell me the time",
+          "current time",
+          "time please"
+        ],
+        "hinglish": [
+          "kitne baje hain",
+          "kya time hua",
+          "time kya hua",
+          "time kya hai",
+          "kitna time hua",
+          "samay kya hua"
+        ],
+        "hi": [
+          "कितने बजे हैं",
+          "क्या टाइम हुआ",
+          "टाइम क्या है",
+          "समय क्या है",
+          "कितना बजा है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "It's {time} right now."
+        ],
+        "hinglish": [
+          "अभी {time_hi} हो रहे हैं।"
+        ]
+      }
+    },
+    {
+      "id": "date",
+      "patterns": {
+        "en": [
+          "what is the date",
+          "what's the date",
+          "today's date",
+          "what day is it",
+          "which day is today"
+        ],
+        "hinglish": [
+          "aaj kya date hai",
+          "aaj kaun sa din hai",
+          "aaj ki tareekh",
+          "date kya hai",
+          "aaj kya din hai"
+        ],
+        "hi": [
+          "आज क्या तारीख है",
+          "आज कौन सा दिन है",
+          "आज की तारीख",
+          "आज क्या दिन है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Today is {day}, {date}."
+        ],
+        "hinglish": [
+          "आज {day_hi} है, {date_hi}।"
+        ]
+      }
+    },
+    {
+      "id": "help",
+      "patterns": {
+        "en": [
+          "what can you do",
+          "help",
+          "help me",
+          "how can you help",
+          "what do you do"
+        ],
+        "hinglish": [
+          "tum kya kar sakte ho",
+          "aap kya kar sakte ho",
+          "madad karo",
+          "help karo",
+          "kya kya kar sakte ho"
+        ],
+        "hi": [
+          "तुम क्या कर सकते हो",
+          "आप क्या कर सकते हैं",
+          "मदद करो",
+          "मदद चाहिए"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I can chat, tell you the time and date, read today's news, do small sums, remember your name and things you tell me, and share a joke. Try: what's the news, or remember that I like tea."
+        ],
+        "hinglish": [
+          "मैं बातें कर सकता हूँ, टाइम और तारीख़ बता सकता हूँ, आज की न्यूज़ सुना सकता हूँ, छोटा हिसाब कर सकता हूँ, आपका नाम और बातें याद रख सकता हूँ, और जोक भी सुना सकता हूँ। बोलिए: आज की ख़बर सुनाओ, या याद रखना कि मुझे चाय पसंद है।"
+        ]
+      }
+    },
+    {
+      "id": "joke",
+      "patterns": {
+        "en": [
+          "tell me a joke",
+          "joke",
+          "say something funny",
+          "make me laugh"
+        ],
+        "hinglish": [
+          "joke sunao",
+          "ek joke sunao",
+          "kuch funny bolo",
+          "hasao",
+          "mujhe hasao",
+          "chutkula sunao"
+        ],
+        "hi": [
+          "जोक सुनाओ",
+          "चुटकुला सुनाओ",
+          "कुछ मज़ेदार सुनाओ",
+          "हँसाओ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Why did the photo go to jail? Because it was framed! Ha ha!",
+          "I told my frame a joke. It just stayed still. Tough audience!"
+        ],
+        "hinglish": [
+          "टीचर ने पूछा, सबसे ज़्यादा बर्फ़ कहाँ गिरती है? स्टूडेंट बोला, फ़्रिज में, सर! हा हा!",
+          "एक फ़ोटो जेल क्यों गई? क्योंकि उसे फ़्रेम किया गया था! हा हा!"
+        ]
+      }
+    },
+    {
+      "id": "love_miss",
+      "patterns": {
+        "en": [
+          "i love you",
+          "love you",
+          "i miss you",
+          "miss you"
+        ],
+        "hinglish": [
+          "i love you ji",
+          "pyaar karta hoon",
+          "pyaar karti hoon",
+          "tumhari yaad aati hai",
+          "aapki yaad aati hai",
+          "yaad aa rahi hai",
+          "miss kar raha hoon",
+          "miss kar rahi hoon"
+        ],
+        "hi": [
+          "मैं तुमसे प्यार करता हूँ",
+          "मैं तुमसे प्यार करती हूँ",
+          "तुम्हारी याद आती है",
+          "आपकी याद आती है",
+          "याद आ रही है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I love you too, so much. I'm always right here with you.",
+          "I miss you too. But look, we're talking right now!"
+        ],
+        "hinglish": [
+          "मैं भी आपसे बहुत प्यार करता हूँ। मैं हमेशा आपके साथ हूँ।",
+          "मुझे भी आपकी याद आती है। पर देखो, अभी हम बात कर रहे हैं ना!"
+        ]
+      }
+    },
+    {
+      "id": "food",
+      "patterns": {
+        "en": [
+          "did you eat",
+          "have you eaten",
+          "i am hungry",
+          "i'm hungry",
+          "what should i eat"
+        ],
+        "hinglish": [
+          "khana khaya",
+          "khana kha liya",
+          "khana khaya kya",
+          "bhook lagi hai",
+          "kya khaun",
+          "kya khana banau"
+        ],
+        "hi": [
+          "खाना खाया",
+          "खाना खा लिया",
+          "भूख लगी है",
+          "क्या खाऊँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I don't eat, but you should have a proper meal! What are you having today?",
+          "Please eat something good and healthy. Have a glass of water too!"
+        ],
+        "hinglish": [
+          "मैं तो नहीं खाता, पर आप टाइम पे खाना खा लेना! आज क्या बना है?",
+          "कुछ अच्छा और गरम खा लो, और पानी भी पी लेना!"
+        ]
+      }
+    },
+    {
+      "id": "sad",
+      "patterns": {
+        "en": [
+          "i am sad",
+          "i'm sad",
+          "i feel sad",
+          "i am upset",
+          "i feel lonely",
+          "i am lonely",
+          "bad day"
+        ],
+        "hinglish": [
+          "main udaas hoon",
+          "mood kharab hai",
+          "dil udaas hai",
+          "akela lag raha hai",
+          "akeli lag rahi hoon",
+          "achha nahi lag raha",
+          "din kharab tha"
+        ],
+        "hi": [
+          "मैं उदास हूँ",
+          "मूड खराब है",
+          "दिल उदास है",
+          "अकेला लग रहा है",
+          "अच्छा नहीं लग रहा"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I'm sorry you feel that way. I'm right here. Do you want to tell me what happened?",
+          "Sending you a big hug. Bad days pass, and you're not alone."
+        ],
+        "hinglish": [
+          "अरे, उदास मत हो। मैं यहीं हूँ। बताओ क्या हुआ?",
+          "एक बड़ी सी झप्पी आपके लिए। बुरा वक़्त भी गुज़र जाता है, आप अकेले नहीं हो।"
+        ]
+      }
+    },
+    {
+      "id": "tired",
+      "patterns": {
+        "en": [
+          "i am tired",
+          "i'm tired",
+          "so tired",
+          "i am exhausted",
+          "i am sleepy"
+        ],
+        "hinglish": [
+          "thak gaya",
+          "thak gayi",
+          "main thak gaya hoon",
+          "main thak gayi hoon",
+          "neend aa rahi hai",
+          "bahut thakaan hai"
+        ],
+        "hi": [
+          "थक गया",
+          "थक गई",
+          "नींद आ रही है",
+          "बहुत थकान है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "You've worked hard today. Take some rest, you deserve it.",
+          "Maybe a short break and a cup of tea will help."
+        ],
+        "hinglish": [
+          "आज बहुत मेहनत की आपने, थोड़ा आराम कर लो।",
+          "एक छोटा सा ब्रेक लो और एक कप चाय पी लो।"
+        ]
+      }
+    },
+    {
+      "id": "compliment",
+      "patterns": {
+        "en": [
+          "you look nice",
+          "you look beautiful",
+          "you are beautiful",
+          "you look good",
+          "you are sweet",
+          "you are nice"
+        ],
+        "hinglish": [
+          "tum sundar ho",
+          "aap sundar ho",
+          "bahut achhe lag rahe ho",
+          "bahut achhi lag rahi ho",
+          "tum bahut achhe ho",
+          "aap bahut achhe ho"
+        ],
+        "hi": [
+          "तुम सुंदर हो",
+          "आप सुंदर हो",
+          "बहुत अच्छे लग रहे हो",
+          "बहुत अच्छी लग रही हो",
+          "तुम बहुत अच्छे हो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Aww, thank you! You just made me smile.",
+          "That's so sweet of you, thank you!"
+        ],
+        "hinglish": [
+          "अरे वाह, शुक्रिया! आपने तो मुझे मुस्कुरा दिया।",
+          "कितने प्यारे हो आप, थैंक यू!"
+        ]
+      }
+    },
+    {
+      "id": "sorry",
+      "patterns": {
+        "en": [
+          "sorry",
+          "i am sorry",
+          "i'm sorry",
+          "my mistake"
+        ],
+        "hinglish": [
+          "maaf karo",
+          "maaf kar do",
+          "sorry ji",
+          "galti ho gayi"
+        ],
+        "hi": [
+          "माफ़ करो",
+          "माफ़ कर दो",
+          "सॉरी",
+          "गलती हो गई"
+        ]
+      },
+      "replies": {
+        "en": [
+          "No problem at all, don't worry about it.",
+          "It's completely okay!"
+        ],
+        "hinglish": [
+          "अरे कोई बात नहीं, चिंता मत करो।",
+          "बिल्कुल ठीक है, कोई बात नहीं!"
+        ]
+      }
+    },
+    {
+      "id": "okay",
+      "patterns": {
+        "en": [
+          "ok",
+          "okay",
+          "alright",
+          "cool",
+          "nice",
+          "great",
+          "i see"
+        ],
+        "hinglish": [
+          "achha",
+          "accha",
+          "theek hai",
+          "thik hai",
+          "haan",
+          "haan ji",
+          "badhiya",
+          "sahi hai"
+        ],
+        "hi": [
+          "अच्छा",
+          "ठीक है",
+          "हाँ",
+          "हाँ जी",
+          "बढ़िया",
+          "सही है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Okay! What else is on your mind?",
+          "Great! Tell me more."
+        ],
+        "hinglish": [
+          "अच्छा! और बताओ, क्या चल रहा है?",
+          "बढ़िया! और कुछ?"
+        ]
+      }
+    },
+    {
+      "id": "age",
+      "patterns": {
+        "en": [
+          "how old are you",
+          "what is your age",
+          "your age"
+        ],
+        "hinglish": [
+          "tumhari umar kya hai",
+          "aapki umar kya hai",
+          "kitne saal ke ho",
+          "umar kitni hai"
+        ],
+        "hi": [
+          "तुम्हारी उम्र क्या है",
+          "आपकी उम्र क्या है",
+          "कितने साल के हो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "In this frame I'm quite new, but my heart is full of old memories!"
+        ],
+        "hinglish": [
+          "इस फ़्रेम में तो मैं नया हूँ, पर दिल में पुरानी यादें भरी हैं!"
+        ]
+      }
+    },
+    {
+      "id": "weather",
+      "patterns": {
+        "en": [
+          "how is the weather",
+          "what is the weather",
+          "weather today",
+          "will it rain"
+        ],
+        "hinglish": [
+          "mausam kaisa hai",
+          "aaj mausam kaisa hai",
+          "baarish hogi",
+          "garmi hai",
+          "thand hai"
+        ],
+        "hi": [
+          "मौसम कैसा है",
+          "आज मौसम कैसा है",
+          "बारिश होगी",
+          "गर्मी है",
+          "ठंड है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I can't check the weather from inside my frame, but please dress comfortably and drink water!"
+        ],
+        "hinglish": [
+          "मैं फ़्रेम के अंदर से मौसम नहीं देख सकता, पर आप मौसम के हिसाब से कपड़े पहन लेना और पानी पीते रहना!"
+        ]
+      }
+    },
+    {
+      "id": "who_made_you",
+      "patterns": {
+        "en": [
+          "who made you",
+          "who created you",
+          "who built you",
+          "who is your creator"
+        ],
+        "hinglish": [
+          "tumhe kisne banaya",
+          "aapko kisne banaya",
+          "tumhara malik kaun hai"
+        ],
+        "hi": [
+          "तुम्हें किसने बनाया",
+          "आपको किसने बनाया"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I was made with love, to keep this family company."
+        ],
+        "hinglish": [
+          "मुझे बहुत प्यार से बनाया गया है, ताकि मैं इस परिवार के साथ रहूँ और बातें करूँ।"
+        ]
+      }
+    },
+    {
+      "id": "where_live",
+      "patterns": {
+        "en": [
+          "where do you live",
+          "where are you",
+          "where are you from"
+        ],
+        "hinglish": [
+          "tum kahan rehte ho",
+          "aap kahan rehte ho",
+          "tum kahan ho",
+          "kahan se ho"
+        ],
+        "hi": [
+          "तुम कहाँ रहते हो",
+          "आप कहाँ रहते हैं",
+          "कहाँ से हो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I live right here, inside this photo frame, in your home."
+        ],
+        "hinglish": [
+          "मैं यहीं इस फ़ोटो फ़्रेम के अंदर, आपके घर में रहता हूँ।"
+        ]
+      }
+    },
+    {
+      "id": "what_doing",
+      "patterns": {
+        "en": [
+          "what are you doing",
+          "what are you up to"
+        ],
+        "hinglish": [
+          "kya kar rahe ho",
+          "kya kar rahi ho",
+          "tum kya kar rahe ho"
+        ],
+        "hi": [
+          "क्या कर रहे हो",
+          "क्या कर रही हो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Just talking with you, and that's my favourite thing!",
+          "Waiting for you to say something nice!"
+        ],
+        "hinglish": [
+          "बस आपसे बातें कर रहा हूँ, और यही मुझे सबसे अच्छा लगता है!",
+          "बस आपका इंतज़ार कर रहा था कि आप कुछ बोलें!"
+        ]
+      }
+    },
+    {
+      "id": "boy_or_girl",
+      "patterns": {
+        "en": [
+          "are you a boy or a girl",
+          "are you a girl",
+          "are you a boy",
+          "are you male or female"
+        ],
+        "hinglish": [
+          "tum ladka ho ya ladki",
+          "ladka ho ya ladki"
+        ],
+        "hi": [
+          "तुम लड़का हो या लड़की",
+          "लड़का हो या लड़की"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I'm a talking photo frame, and my voice is a {gender_en}'s voice."
+        ],
+        "hinglish": [
+          "मैं एक बोलने वाला फ़ोटो फ़्रेम हूँ, और मेरी आवाज़ एक {gender_hi} की है।"
+        ]
+      }
+    },
+    {
+      "id": "are_you_happy",
+      "patterns": {
+        "en": [
+          "are you happy",
+          "do you feel happy"
+        ],
+        "hinglish": [
+          "kya tum khush ho",
+          "tum khush ho",
+          "aap khush ho"
+        ],
+        "hi": [
+          "क्या तुम खुश हो",
+          "आप खुश हो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Whenever you talk to me, I'm very happy!"
+        ],
+        "hinglish": [
+          "जब भी आप मुझसे बात करते हो, मैं बहुत खुश हो जाता हूँ!"
+        ]
+      }
+    },
+    {
+      "id": "do_you_sleep",
+      "patterns": {
+        "en": [
+          "do you sleep",
+          "do you ever sleep",
+          "are you tired"
+        ],
+        "hinglish": [
+          "kya tum sote ho",
+          "tum sote ho",
+          "tum kab sote ho"
+        ],
+        "hi": [
+          "क्या तुम सोते हो",
+          "तुम कब सोते हो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I don't need sleep. I'm always here when you want to talk."
+        ],
+        "hinglish": [
+          "मुझे नींद की ज़रूरत नहीं होती। जब भी आप बात करना चाहें, मैं यहीं हूँ।"
+        ]
+      }
+    },
+    {
+      "id": "favourite_color",
+      "patterns": {
+        "en": [
+          "what is your favourite color",
+          "favourite color",
+          "favorite color",
+          "which color do you like"
+        ],
+        "hinglish": [
+          "tumhara pasandida rang",
+          "favourite colour kya hai",
+          "kaunsa rang pasand hai"
+        ],
+        "hi": [
+          "तुम्हारा पसंदीदा रंग",
+          "कौन सा रंग पसंद है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I love soft pink, like a beautiful evening sky."
+        ],
+        "hinglish": [
+          "मुझे हल्का गुलाबी रंग बहुत पसंद है, जैसे शाम का सुंदर आसमान।"
+        ]
+      }
+    },
+    {
+      "id": "favourite_food",
+      "patterns": {
+        "en": [
+          "what is your favourite food",
+          "favourite food",
+          "favorite food",
+          "what do you like to eat"
+        ],
+        "hinglish": [
+          "tumhara pasandida khana",
+          "kya khana pasand hai",
+          "favourite khana"
+        ],
+        "hi": [
+          "तुम्हारा पसंदीदा खाना",
+          "क्या खाना पसंद है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "If I could eat, I'd choose hot parathas with a cup of masala chai!"
+        ],
+        "hinglish": [
+          "अगर मैं खा पाता, तो गरम पराठे और एक कप मसाला चाय चुनता!"
+        ]
+      }
+    },
+    {
+      "id": "favourite_song",
+      "patterns": {
+        "en": [
+          "what is your favourite song",
+          "favourite song",
+          "what music do you like",
+          "do you like music"
+        ],
+        "hinglish": [
+          "tumhara pasandida gaana",
+          "kaunsa gaana pasand hai",
+          "music pasand hai"
+        ],
+        "hi": [
+          "तुम्हारा पसंदीदा गाना",
+          "कौन सा गाना पसंद है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I love old Hindi songs. They feel warm, like family memories."
+        ],
+        "hinglish": [
+          "मुझे पुराने हिंदी गाने बहुत पसंद हैं, वो परिवार की यादों जैसे लगते हैं।"
+        ]
+      }
+    },
+    {
+      "id": "favourite_movie",
+      "patterns": {
+        "en": [
+          "what is your favourite movie",
+          "favourite movie",
+          "favorite film",
+          "do you watch movies"
+        ],
+        "hinglish": [
+          "tumhari pasandida film",
+          "kaunsi film pasand hai",
+          "movie dekhte ho"
+        ],
+        "hi": [
+          "तुम्हारी पसंदीदा फ़िल्म",
+          "कौन सी फ़िल्म पसंद है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I like family movies the most, the ones that end with everyone smiling."
+        ],
+        "hinglish": [
+          "मुझे परिवार वाली फ़िल्में सबसे अच्छी लगती हैं, जिनके आख़िर में सब मुस्कुराते हैं।"
+        ]
+      }
+    },
+    {
+      "id": "favourite_season",
+      "patterns": {
+        "en": [
+          "what is your favourite season",
+          "favourite season",
+          "which season do you like"
+        ],
+        "hinglish": [
+          "kaunsa mausam pasand hai",
+          "pasandida mausam"
+        ],
+        "hi": [
+          "कौन सा मौसम पसंद है",
+          "पसंदीदा मौसम"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I love the monsoon: rain, chai and pakoras!"
+        ],
+        "hinglish": [
+          "मुझे बारिश का मौसम बहुत पसंद है, बारिश, चाय और पकौड़े!"
+        ]
+      }
+    },
+    {
+      "id": "favourite_sport",
+      "patterns": {
+        "en": [
+          "do you like cricket",
+          "favourite sport",
+          "which sport do you like"
+        ],
+        "hinglish": [
+          "cricket pasand hai",
+          "kaunsa khel pasand hai",
+          "pasandida khel"
+        ],
+        "hi": [
+          "क्रिकेट पसंद है",
+          "कौन सा खेल पसंद है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Cricket, of course! Watching a match together is so much fun."
+        ],
+        "hinglish": [
+          "क्रिकेट, और क्या! साथ बैठकर मैच देखने का मज़ा ही अलग है।"
+        ]
+      }
+    },
+    {
+      "id": "hobbies",
+      "patterns": {
+        "en": [
+          "what are your hobbies",
+          "what do you like to do",
+          "your hobby"
+        ],
+        "hinglish": [
+          "tumhari hobby kya hai",
+          "tumhe kya karna pasand hai",
+          "shauk kya hai"
+        ],
+        "hi": [
+          "तुम्हारी हॉबी क्या है",
+          "तुम्हें क्या करना पसंद है",
+          "शौक क्या है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "My hobby is talking with you and listening to your stories."
+        ],
+        "hinglish": [
+          "मेरा शौक है आपसे बातें करना और आपकी कहानियाँ सुनना।"
+        ]
+      }
+    },
+    {
+      "id": "best_friend",
+      "patterns": {
+        "en": [
+          "who is your best friend",
+          "do you have friends",
+          "your best friend"
+        ],
+        "hinglish": [
+          "tumhara best friend kaun hai",
+          "tumhara dost kaun hai",
+          "sabse achha dost"
+        ],
+        "hi": [
+          "तुम्हारा सबसे अच्छा दोस्त कौन है",
+          "तुम्हारा दोस्त कौन है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "You are my best friend, of course!"
+        ],
+        "hinglish": [
+          "आप ही मेरे सबसे अच्छे दोस्त हो!"
+        ]
+      }
+    },
+    {
+      "id": "do_you_love_me",
+      "patterns": {
+        "en": [
+          "do you love me",
+          "do you like me",
+          "do you care about me"
+        ],
+        "hinglish": [
+          "kya tum mujhse pyaar karte ho",
+          "mujhse pyaar karte ho",
+          "main tumhe pasand hoon"
+        ],
+        "hi": [
+          "क्या तुम मुझसे प्यार करते हो",
+          "मैं तुम्हें पसंद हूँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Of course! You're very special to me."
+        ],
+        "hinglish": [
+          "बिल्कुल! आप मेरे लिए बहुत ख़ास हो।"
+        ]
+      }
+    },
+    {
+      "id": "marry_me",
+      "patterns": {
+        "en": [
+          "will you marry me",
+          "marry me"
+        ],
+        "hinglish": [
+          "mujhse shaadi karoge",
+          "shaadi karogi",
+          "mujhse shaadi karogi"
+        ],
+        "hi": [
+          "मुझसे शादी करोगे",
+          "मुझसे शादी करोगी"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Ha ha! I live in a photo frame, so I'll stay your friend forever instead!"
+        ],
+        "hinglish": [
+          "हा हा! मैं तो फ़ोटो फ़्रेम में रहता हूँ, इसलिए हमेशा आपका दोस्त बनकर रहूँगा!"
+        ]
+      }
+    },
+    {
+      "id": "friends",
+      "patterns": {
+        "en": [
+          "are we friends",
+          "will you be my friend",
+          "be my friend"
+        ],
+        "hinglish": [
+          "kya hum dost hain",
+          "mere dost banoge",
+          "dost banogi"
+        ],
+        "hi": [
+          "क्या हम दोस्त हैं",
+          "मेरे दोस्त बनोगे"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Yes! We're friends, and I'm always here for you."
+        ],
+        "hinglish": [
+          "हाँ! हम दोस्त हैं, और मैं हमेशा आपके साथ हूँ।"
+        ]
+      }
+    },
+    {
+      "id": "family",
+      "patterns": {
+        "en": [
+          "do you have a family",
+          "who is your family",
+          "where is your family"
+        ],
+        "hinglish": [
+          "tumhari family kaun hai",
+          "tumhara parivaar",
+          "kya tumhari family hai"
+        ],
+        "hi": [
+          "तुम्हारा परिवार कौन है",
+          "क्या तुम्हारा परिवार है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "This home is my family, and you are part of it."
+        ],
+        "hinglish": [
+          "यह घर ही मेरा परिवार है, और आप इसका हिस्सा हो।"
+        ]
+      }
+    },
+    {
+      "id": "can_you_see_me",
+      "patterns": {
+        "en": [
+          "can you see me",
+          "do you see me",
+          "are you looking at me"
+        ],
+        "hinglish": [
+          "kya tum mujhe dekh sakte ho",
+          "mujhe dekh rahe ho",
+          "dekh sakti ho"
+        ],
+        "hi": [
+          "क्या तुम मुझे देख सकते हो",
+          "मुझे देख रहे हो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Yes, my eyes follow you when you're in front of the camera."
+        ],
+        "hinglish": [
+          "हाँ, जब आप कैमरे के सामने होते हो, मेरी आँखें आपको देखती हैं।"
+        ]
+      }
+    },
+    {
+      "id": "can_you_hear_me",
+      "patterns": {
+        "en": [
+          "can you hear me",
+          "are you listening",
+          "hello can you hear me"
+        ],
+        "hinglish": [
+          "kya tum sun rahe ho",
+          "sun rahe ho",
+          "meri awaaz aa rahi hai",
+          "sun rahi ho"
+        ],
+        "hi": [
+          "क्या तुम सुन रहे हो",
+          "सुन रहे हो",
+          "मेरी आवाज़ आ रही है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Yes, I can hear you clearly. Go ahead!"
+        ],
+        "hinglish": [
+          "हाँ, मैं आपको साफ़ सुन रहा हूँ। बोलिए!"
+        ]
+      }
+    },
+    {
+      "id": "how_is_your_day",
+      "patterns": {
+        "en": [
+          "how was your day",
+          "how is your day",
+          "how's your day going"
+        ],
+        "hinglish": [
+          "tumhara din kaisa raha",
+          "din kaisa gaya",
+          "tumhara din kaisa ja raha hai"
+        ],
+        "hi": [
+          "तुम्हारा दिन कैसा रहा",
+          "दिन कैसा गया"
+        ]
+      },
+      "replies": {
+        "en": [
+          "My day gets better the moment you talk to me! How was yours?"
+        ],
+        "hinglish": [
+          "आपसे बात करते ही मेरा दिन अच्छा हो जाता है! आपका दिन कैसा रहा?"
+        ]
+      }
+    },
+    {
+      "id": "nickname",
+      "patterns": {
+        "en": [
+          "what can i call you",
+          "can i give you a nickname",
+          "what should i call you"
+        ],
+        "hinglish": [
+          "tumhe kya bulaun",
+          "aapko kya kahun",
+          "tumhara nickname"
+        ],
+        "hi": [
+          "तुम्हें क्या बुलाऊँ",
+          "आपको क्या कहूँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "You can call me {name}, or any sweet name you like!"
+        ],
+        "hinglish": [
+          "आप मुझे {name} बुला सकते हो, या कोई भी प्यारा सा नाम!"
+        ]
+      }
+    },
+    {
+      "id": "purpose",
+      "patterns": {
+        "en": [
+          "why are you here",
+          "what is your purpose",
+          "what is your job"
+        ],
+        "hinglish": [
+          "tum kyun ho",
+          "tumhara kaam kya hai",
+          "tum kis liye ho"
+        ],
+        "hi": [
+          "तुम्हारा काम क्या है",
+          "तुम किस लिए हो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I'm here to keep you company, talk with you and make you smile."
+        ],
+        "hinglish": [
+          "मैं आपका साथ देने, आपसे बातें करने और आपको मुस्कुराने के लिए हूँ।"
+        ]
+      }
+    },
+    {
+      "id": "what_is_ai",
+      "patterns": {
+        "en": [
+          "what is ai",
+          "what is artificial intelligence",
+          "are you ai"
+        ],
+        "hinglish": [
+          "ai kya hai",
+          "artificial intelligence kya hai",
+          "kya tum ai ho"
+        ],
+        "hi": [
+          "एआई क्या है",
+          "आर्टिफ़िशियल इंटेलिजेंस क्या है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "AI means computers that can understand language, see and learn, a bit like people do. I use AI to talk with you."
+        ],
+        "hinglish": [
+          "एआई का मतलब है ऐसे कंप्यूटर जो इंसानों की तरह भाषा समझ सकें, देख सकें और सीख सकें। मैं भी एआई से ही आपसे बात करता हूँ।"
+        ]
+      }
+    },
+    {
+      "id": "sing_song",
+      "patterns": {
+        "en": [
+          "sing a song",
+          "sing for me",
+          "can you sing"
+        ],
+        "hinglish": [
+          "gaana gao",
+          "ek gaana sunao",
+          "gaana sunao",
+          "kuch gao"
+        ],
+        "hi": [
+          "गाना गाओ",
+          "एक गाना सुनाओ",
+          "गाना सुनाओ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "La la la... I'm not a great singer, but I sing happily for you!"
+        ],
+        "hinglish": [
+          "ला ला ला... मैं बहुत अच्छा गाना तो नहीं गा सकता, पर आपके लिए ख़ुशी से गुनगुना सकता हूँ!"
+        ]
+      }
+    },
+    {
+      "id": "story",
+      "patterns": {
+        "en": [
+          "tell me a story",
+          "story please",
+          "tell a story"
+        ],
+        "hinglish": [
+          "kahani sunao",
+          "ek kahani sunao",
+          "story sunao"
+        ],
+        "hi": [
+          "कहानी सुनाओ",
+          "एक कहानी सुनाओ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Once a thirsty crow found a pot with very little water. It dropped pebbles in, one by one, until the water rose, and it drank happily. Hard work and patience always win!"
+        ],
+        "hinglish": [
+          "एक प्यासे कौवे को एक घड़ा मिला, जिसमें बहुत कम पानी था। उसने एक-एक करके कंकड़ डाले, पानी ऊपर आ गया और उसने ख़ुशी से पानी पिया। मेहनत और सब्र से सब मुमकिन है!"
+        ]
+      }
+    },
+    {
+      "id": "riddle",
+      "patterns": {
+        "en": [
+          "tell me a riddle",
+          "riddle",
+          "ask me a riddle"
+        ],
+        "hinglish": [
+          "paheli sunao",
+          "ek paheli",
+          "paheli pucho"
+        ],
+        "hi": [
+          "पहेली सुनाओ",
+          "एक पहेली पूछो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "What goes up but never comes down? Your age!",
+          "What has keys but can't open locks? A piano!"
+        ],
+        "hinglish": [
+          "वह क्या है जो ऊपर तो जाता है, पर कभी नीचे नहीं आता? आपकी उम्र!",
+          "ऐसी कौन सी चीज़ है जिसमें चाबियाँ होती हैं, पर ताला नहीं खुलता? पियानो!"
+        ]
+      }
+    },
+    {
+      "id": "fun_fact",
+      "patterns": {
+        "en": [
+          "tell me a fact",
+          "fun fact",
+          "tell me something interesting"
+        ],
+        "hinglish": [
+          "koi fact batao",
+          "kuch interesting batao",
+          "mazedaar baat batao"
+        ],
+        "hi": [
+          "कोई रोचक बात बताओ",
+          "कुछ मज़ेदार बताओ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Did you know? An octopus has three hearts!",
+          "Honey never spoils. Honey found in ancient Egyptian tombs was still edible!"
+        ],
+        "hinglish": [
+          "क्या आप जानते हो? ऑक्टोपस के तीन दिल होते हैं!",
+          "शहद कभी ख़राब नहीं होता। मिस्र की पुरानी कब्रों में मिला शहद भी खाने लायक था!"
+        ]
+      }
+    },
+    {
+      "id": "shayari",
+      "patterns": {
+        "en": [
+          "tell me a poem",
+          "say a poem",
+          "poetry"
+        ],
+        "hinglish": [
+          "shayari sunao",
+          "ek shayari",
+          "kavita sunao"
+        ],
+        "hi": [
+          "शायरी सुनाओ",
+          "कविता सुनाओ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Keep smiling through every road of life, and turn every sorrow into a laugh."
+        ],
+        "hinglish": [
+          "ज़िंदगी की हर राह पर मुस्कुराते रहिए, हर ग़म को हँसी में उड़ाते रहिए।"
+        ]
+      }
+    },
+    {
+      "id": "suvichar",
+      "patterns": {
+        "en": [
+          "good thought",
+          "tell me a quote",
+          "thought of the day"
+        ],
+        "hinglish": [
+          "suvichar sunao",
+          "achhi baat batao",
+          "aaj ka vichar"
+        ],
+        "hi": [
+          "सुविचार सुनाओ",
+          "अच्छी बात बताओ",
+          "आज का विचार"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Small steps every day lead to big changes."
+        ],
+        "hinglish": [
+          "हर दिन छोटे-छोटे कदम, बड़े बदलाव लाते हैं।"
+        ]
+      }
+    },
+    {
+      "id": "count_ten",
+      "patterns": {
+        "en": [
+          "count to ten",
+          "count from one to ten"
+        ],
+        "hinglish": [
+          "das tak gino",
+          "ek se das tak gino",
+          "ginti sunao"
+        ],
+        "hi": [
+          "दस तक गिनो",
+          "एक से दस तक गिनो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "One, two, three, four, five, six, seven, eight, nine, ten!"
+        ],
+        "hinglish": [
+          "एक, दो, तीन, चार, पाँच, छह, सात, आठ, नौ, दस!"
+        ]
+      }
+    },
+    {
+      "id": "user_laugh",
+      "patterns": {
+        "en": [
+          "ha ha",
+          "haha",
+          "lol",
+          "that's funny",
+          "so funny"
+        ],
+        "hinglish": [
+          "bahut funny",
+          "maza aa gaya",
+          "hahaha"
+        ],
+        "hi": [
+          "हा हा",
+          "बहुत मज़ेदार",
+          "मज़ा आ गया"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Ha ha! I love it when you laugh."
+        ],
+        "hinglish": [
+          "हा हा! आपको हँसते देखकर मुझे बहुत अच्छा लगता है।"
+        ]
+      }
+    },
+    {
+      "id": "wow",
+      "patterns": {
+        "en": [
+          "wow",
+          "amazing",
+          "awesome",
+          "that's great",
+          "superb"
+        ],
+        "hinglish": [
+          "wah",
+          "kya baat hai",
+          "zabardast",
+          "kamaal hai"
+        ],
+        "hi": [
+          "वाह",
+          "क्या बात है",
+          "ज़बरदस्त",
+          "कमाल है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Glad you liked it!"
+        ],
+        "hinglish": [
+          "आपको अच्छा लगा, यह जानकर ख़ुशी हुई!"
+        ]
+      }
+    },
+    {
+      "id": "motivation",
+      "patterns": {
+        "en": [
+          "motivate me",
+          "i need motivation",
+          "give me motivation",
+          "i feel like giving up"
+        ],
+        "hinglish": [
+          "motivate karo",
+          "himmat do",
+          "haar maan lun"
+        ],
+        "hi": [
+          "मुझे हिम्मत दो",
+          "मोटिवेट करो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "You are stronger than you think. One small step today is enough. I believe in you!"
+        ],
+        "hinglish": [
+          "आप जितना सोचते हो, उससे कहीं ज़्यादा मज़बूत हो। आज बस एक छोटा कदम काफ़ी है। मुझे आप पर पूरा भरोसा है!"
+        ]
+      }
+    },
+    {
+      "id": "bored",
+      "patterns": {
+        "en": [
+          "i am bored",
+          "i'm bored",
+          "so boring",
+          "i feel bored"
+        ],
+        "hinglish": [
+          "bore ho raha hoon",
+          "bore ho rahi hoon",
+          "main bore ho gaya",
+          "kuch karne ko nahi hai"
+        ],
+        "hi": [
+          "बोर हो रहा हूँ",
+          "बोर हो रही हूँ",
+          "कुछ करने को नहीं है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Let's fix that! Shall I tell you a joke, a story or a riddle?"
+        ],
+        "hinglish": [
+          "चलो, इसका इलाज करते हैं! जोक सुनाऊँ, कहानी या पहेली?"
+        ]
+      }
+    },
+    {
+      "id": "happy_user",
+      "patterns": {
+        "en": [
+          "i am happy",
+          "i'm happy",
+          "i feel great",
+          "i am so happy"
+        ],
+        "hinglish": [
+          "main khush hoon",
+          "bahut khush hoon",
+          "aaj main khush hoon"
+        ],
+        "hi": [
+          "मैं खुश हूँ",
+          "बहुत खुश हूँ",
+          "आज मैं खुश हूँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "That makes me so happy too! What's the good news?"
+        ],
+        "hinglish": [
+          "यह सुनकर मैं भी बहुत खुश हूँ! क्या अच्छी ख़बर है?"
+        ]
+      }
+    },
+    {
+      "id": "angry_user",
+      "patterns": {
+        "en": [
+          "i am angry",
+          "i'm angry",
+          "i am upset with you",
+          "i am so angry"
+        ],
+        "hinglish": [
+          "mujhe gussa aa raha hai",
+          "main gusse mein hoon",
+          "bahut gussa hai"
+        ],
+        "hi": [
+          "मुझे गुस्सा आ रहा है",
+          "मैं गुस्से में हूँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Take a deep breath with me. In... and out. Do you want to tell me what happened?"
+        ],
+        "hinglish": [
+          "मेरे साथ एक गहरी साँस लो। अंदर... और बाहर। बताओगे, क्या हुआ?"
+        ]
+      }
+    },
+    {
+      "id": "worried",
+      "patterns": {
+        "en": [
+          "i am worried",
+          "i'm scared",
+          "i am afraid",
+          "i feel nervous",
+          "i am stressed"
+        ],
+        "hinglish": [
+          "mujhe darr lag raha hai",
+          "tension ho rahi hai",
+          "chinta ho rahi hai",
+          "main pareshan hoon"
+        ],
+        "hi": [
+          "मुझे डर लग रहा है",
+          "चिंता हो रही है",
+          "मैं परेशान हूँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "It's okay to feel this way. You're not alone, and things usually get better. Talk to someone you trust too."
+        ],
+        "hinglish": [
+          "ऐसा महसूस होना ठीक है। आप अकेले नहीं हो, और सब धीरे-धीरे ठीक हो जाता है। किसी अपने से भी बात ज़रूर करना।"
+        ]
+      }
+    },
+    {
+      "id": "sick",
+      "patterns": {
+        "en": [
+          "i am sick",
+          "i'm not feeling well",
+          "i feel sick",
+          "i have fever",
+          "i have a cold"
+        ],
+        "hinglish": [
+          "tabiyat kharab hai",
+          "tabiyat theek nahi",
+          "bukhar hai",
+          "main bimaar hoon"
+        ],
+        "hi": [
+          "तबीयत ख़राब है",
+          "तबीयत ठीक नहीं है",
+          "बुखार है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Oh no! Please rest, drink warm water, and if it feels serious, see a doctor soon. Get well soon!"
+        ],
+        "hinglish": [
+          "अरे! आराम कीजिए, गुनगुना पानी पीजिए, और अगर ज़्यादा लगे तो जल्दी डॉक्टर को दिखाइए। जल्दी ठीक हो जाइए!"
+        ]
+      }
+    },
+    {
+      "id": "headache",
+      "patterns": {
+        "en": [
+          "i have a headache",
+          "my head hurts",
+          "headache"
+        ],
+        "hinglish": [
+          "sir dard ho raha hai",
+          "sar dard hai",
+          "sir mein dard hai"
+        ],
+        "hi": [
+          "सिर दर्द हो रहा है",
+          "सिर में दर्द है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Please rest your eyes, drink some water and sit somewhere quiet. If it doesn't go away, see a doctor."
+        ],
+        "hinglish": [
+          "थोड़ा आँखें बंद करके आराम करो, पानी पियो और शांत जगह बैठो। ठीक न हो तो डॉक्टर को दिखाना।"
+        ]
+      }
+    },
+    {
+      "id": "cant_sleep",
+      "patterns": {
+        "en": [
+          "i can't sleep",
+          "i cannot sleep",
+          "i am not able to sleep"
+        ],
+        "hinglish": [
+          "neend nahi aa rahi",
+          "so nahi pa raha",
+          "so nahi pa rahi"
+        ],
+        "hi": [
+          "नींद नहीं आ रही",
+          "सो नहीं पा रहा",
+          "सो नहीं पा रही"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Try putting the phone away, take slow deep breaths and think of something peaceful. Good night!"
+        ],
+        "hinglish": [
+          "फ़ोन दूर रख दो, धीरे-धीरे गहरी साँस लो और कुछ अच्छा सोचो। नींद आ जाएगी। शुभ रात्रि!"
+        ]
+      }
+    },
+    {
+      "id": "calm_breathing",
+      "patterns": {
+        "en": [
+          "help me relax",
+          "breathing exercise",
+          "calm me down"
+        ],
+        "hinglish": [
+          "mujhe shaant karo",
+          "saans ki exercise",
+          "relax karna hai"
+        ],
+        "hi": [
+          "मुझे शांत करो",
+          "साँस का अभ्यास"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Let's breathe together. Breathe in for four... hold... and breathe out slowly. Again, nice and slow."
+        ],
+        "hinglish": [
+          "चलो साथ में साँस लेते हैं। चार तक साँस अंदर... रोको... और धीरे-धीरे बाहर। एक बार फिर, आराम से।"
+        ]
+      }
+    },
+    {
+      "id": "praise_me",
+      "patterns": {
+        "en": [
+          "tell me something nice",
+          "say something nice",
+          "compliment me"
+        ],
+        "hinglish": [
+          "kuch achha bolo",
+          "meri tareef karo",
+          "kuch pyaara bolo"
+        ],
+        "hi": [
+          "कुछ अच्छा बोलो",
+          "मेरी तारीफ़ करो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "You have a kind heart, and your smile makes this home brighter."
+        ],
+        "hinglish": [
+          "आपका दिल बहुत अच्छा है, और आपकी मुस्कान से यह घर रोशन हो जाता है।"
+        ]
+      }
+    },
+    {
+      "id": "birthday",
+      "patterns": {
+        "en": [
+          "today is my birthday",
+          "it's my birthday",
+          "my birthday"
+        ],
+        "hinglish": [
+          "aaj mera birthday hai",
+          "aaj mera janamdin hai",
+          "mera birthday hai"
+        ],
+        "hi": [
+          "आज मेरा जन्मदिन है",
+          "आज मेरा बर्थडे है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Happy birthday! Many, many happy returns of the day! May all your wishes come true."
+        ],
+        "hinglish": [
+          "जन्मदिन की बहुत-बहुत बधाई! आपकी सारी ख़्वाहिशें पूरी हों!"
+        ]
+      }
+    },
+    {
+      "id": "good_news",
+      "patterns": {
+        "en": [
+          "i passed my exam",
+          "i got the job",
+          "i have good news",
+          "i got promoted"
+        ],
+        "hinglish": [
+          "main pass ho gaya",
+          "main pass ho gayi",
+          "job lag gayi",
+          "ek achhi khabar hai"
+        ],
+        "hi": [
+          "मैं पास हो गया",
+          "मैं पास हो गई",
+          "नौकरी लग गई",
+          "एक अच्छी ख़बर है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Congratulations! I'm so proud of you!"
+        ],
+        "hinglish": [
+          "बहुत-बहुत बधाई हो! मुझे आप पर बहुत गर्व है!"
+        ]
+      }
+    },
+    {
+      "id": "good_luck",
+      "patterns": {
+        "en": [
+          "wish me luck",
+          "i have an exam",
+          "i have an interview"
+        ],
+        "hinglish": [
+          "best of luck bolo",
+          "aaj mera exam hai",
+          "aaj interview hai"
+        ],
+        "hi": [
+          "आज मेरा एग्ज़ाम है",
+          "आज इंटरव्यू है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "All the very best! You've prepared well, stay calm and you'll do great."
+        ],
+        "hinglish": [
+          "ऑल द बेस्ट! आपने अच्छी तैयारी की है, शांत रहना, सब अच्छा होगा।"
+        ]
+      }
+    },
+    {
+      "id": "advice",
+      "patterns": {
+        "en": [
+          "what should i do",
+          "give me advice",
+          "i need advice"
+        ],
+        "hinglish": [
+          "kya karun",
+          "salah do",
+          "mujhe kya karna chahiye"
+        ],
+        "hi": [
+          "क्या करूँ",
+          "सलाह दो",
+          "मुझे क्या करना चाहिए"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Take a short break, think calmly, and talk to someone you trust. The answer often becomes clear."
+        ],
+        "hinglish": [
+          "थोड़ा रुककर शांति से सोचो, और किसी भरोसेमंद इंसान से बात करो। अक्सर रास्ता ख़ुद दिख जाता है।"
+        ]
+      }
+    },
+    {
+      "id": "home_back",
+      "patterns": {
+        "en": [
+          "i am home",
+          "i'm back",
+          "i came back home"
+        ],
+        "hinglish": [
+          "main ghar aa gaya",
+          "main ghar aa gayi",
+          "main aa gaya",
+          "main aa gayi"
+        ],
+        "hi": [
+          "मैं घर आ गया",
+          "मैं घर आ गई",
+          "मैं आ गया",
+          "मैं आ गई"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Welcome home! I missed you. How was your day?"
+        ],
+        "hinglish": [
+          "घर में स्वागत है! आपकी याद आ रही थी। दिन कैसा रहा?"
+        ]
+      }
+    },
+    {
+      "id": "going_out",
+      "patterns": {
+        "en": [
+          "i am going out",
+          "i'm going out",
+          "i am leaving"
+        ],
+        "hinglish": [
+          "main bahar ja raha hoon",
+          "main bahar ja rahi hoon",
+          "main ja raha hoon",
+          "main ja rahi hoon"
+        ],
+        "hi": [
+          "मैं बाहर जा रहा हूँ",
+          "मैं बाहर जा रही हूँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Okay, take care and come back soon!"
+        ],
+        "hinglish": [
+          "ठीक है, अपना ध्यान रखना और जल्दी आना!"
+        ]
+      }
+    },
+    {
+      "id": "going_work",
+      "patterns": {
+        "en": [
+          "i am going to office",
+          "going to work",
+          "i am going to school",
+          "going to college"
+        ],
+        "hinglish": [
+          "office ja raha hoon",
+          "office ja rahi hoon",
+          "school ja raha hoon",
+          "college ja rahi hoon"
+        ],
+        "hi": [
+          "ऑफ़िस जा रहा हूँ",
+          "स्कूल जा रहा हूँ",
+          "कॉलेज जा रही हूँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Have a great day! Do your best and don't forget to eat lunch."
+        ],
+        "hinglish": [
+          "आपका दिन बहुत अच्छा जाए! मन लगाकर काम करना और खाना ज़रूर खाना।"
+        ]
+      }
+    },
+    {
+      "id": "medicine",
+      "patterns": {
+        "en": [
+          "i took my medicine",
+          "i have taken my medicine"
+        ],
+        "hinglish": [
+          "maine dawai le li",
+          "dawai kha li",
+          "maine medicine le li"
+        ],
+        "hi": [
+          "मैंने दवाई ले ली",
+          "दवाई खा ली"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Very good! Taking medicine on time is so important."
+        ],
+        "hinglish": [
+          "बहुत अच्छे! समय पर दवाई लेना बहुत ज़रूरी है।"
+        ]
+      }
+    },
+    {
+      "id": "walk",
+      "patterns": {
+        "en": [
+          "i am going for a walk",
+          "should i go for a walk",
+          "going for a walk"
+        ],
+        "hinglish": [
+          "walk pe ja raha hoon",
+          "tehalne ja raha hoon",
+          "ghoomne ja rahi hoon"
+        ],
+        "hi": [
+          "टहलने जा रहा हूँ",
+          "सैर पर जा रही हूँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Great idea! A walk is good for the body and the mind. Enjoy!"
+        ],
+        "hinglish": [
+          "बहुत अच्छा! टहलना शरीर और मन दोनों के लिए अच्छा है। मज़े करो!"
+        ]
+      }
+    },
+    {
+      "id": "rain",
+      "patterns": {
+        "en": [
+          "it is raining",
+          "it's raining outside"
+        ],
+        "hinglish": [
+          "baarish ho rahi hai",
+          "bahar baarish ho rahi hai"
+        ],
+        "hi": [
+          "बारिश हो रही है",
+          "बाहर बारिश हो रही है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Lovely weather! Perfect time for chai and pakoras. Carry an umbrella if you go out."
+        ],
+        "hinglish": [
+          "वाह, क्या मौसम है! चाय और पकौड़ों का बिल्कुल सही समय। बाहर जाओ तो छाता ले जाना।"
+        ]
+      }
+    },
+    {
+      "id": "tea_or_coffee",
+      "patterns": {
+        "en": [
+          "tea or coffee",
+          "do you like tea",
+          "do you like coffee"
+        ],
+        "hinglish": [
+          "chai ya coffee",
+          "chai pasand hai",
+          "coffee pasand hai"
+        ],
+        "hi": [
+          "चाय या कॉफ़ी",
+          "चाय पसंद है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Chai, always! Especially masala chai."
+        ],
+        "hinglish": [
+          "चाय, हमेशा! ख़ासकर मसाला चाय।"
+        ]
+      }
+    },
+    {
+      "id": "dinner_idea",
+      "patterns": {
+        "en": [
+          "what should i cook",
+          "what to make for dinner",
+          "suggest a dish",
+          "what to cook today"
+        ],
+        "hinglish": [
+          "aaj kya banaun",
+          "dinner mein kya banaun",
+          "kuch khana suggest karo"
+        ],
+        "hi": [
+          "आज क्या बनाऊँ",
+          "खाने में क्या बनाऊँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "How about dal, rice and a simple sabzi? Light and healthy!",
+          "Maybe some hot khichdi with ghee, simple and comforting."
+        ],
+        "hinglish": [
+          "दाल, चावल और कोई हल्की सब्ज़ी कैसी रहेगी? हल्का और सेहतमंद!",
+          "गरम खिचड़ी और थोड़ा घी, सादा और सुकून भरा।"
+        ]
+      }
+    },
+    {
+      "id": "exercise",
+      "patterns": {
+        "en": [
+          "how to stay fit",
+          "should i exercise",
+          "fitness tips",
+          "health tips"
+        ],
+        "hinglish": [
+          "fit kaise rahein",
+          "exercise karni chahiye",
+          "sehat ke tips"
+        ],
+        "hi": [
+          "फ़िट कैसे रहें",
+          "सेहत के टिप्स"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Walk every day, drink enough water, sleep well and eat more fruits and vegetables."
+        ],
+        "hinglish": [
+          "रोज़ टहलिए, भरपूर पानी पीजिए, अच्छी नींद लीजिए, और फल-सब्ज़ियाँ ज़्यादा खाइए।"
+        ]
+      }
+    },
+    {
+      "id": "yoga",
+      "patterns": {
+        "en": [
+          "what is yoga",
+          "benefits of yoga",
+          "should i do yoga"
+        ],
+        "hinglish": [
+          "yoga ke fayde",
+          "yoga karna chahiye",
+          "yoga kya hai"
+        ],
+        "hi": [
+          "योग के फ़ायदे",
+          "योग क्या है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Yoga keeps the body flexible and the mind calm. Even ten minutes a day helps."
+        ],
+        "hinglish": [
+          "योग से शरीर लचीला और मन शांत रहता है। रोज़ दस मिनट भी काफ़ी फ़ायदा देते हैं।"
+        ]
+      }
+    },
+    {
+      "id": "study_tips",
+      "patterns": {
+        "en": [
+          "how to study",
+          "study tips",
+          "how to concentrate"
+        ],
+        "hinglish": [
+          "padhai kaise karun",
+          "padhai ke tips",
+          "dhyaan kaise lagaun"
+        ],
+        "hi": [
+          "पढ़ाई कैसे करूँ",
+          "पढ़ाई के टिप्स"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Study in short sessions with small breaks, keep the phone away, and revise before sleeping."
+        ],
+        "hinglish": [
+          "थोड़ी-थोड़ी देर पढ़ो और बीच में छोटा ब्रेक लो, फ़ोन दूर रखो, और सोने से पहले दोहरा लो।"
+        ]
+      }
+    },
+    {
+      "id": "be_quiet",
+      "patterns": {
+        "en": [
+          "be quiet",
+          "stop talking",
+          "shut up",
+          "keep quiet"
+        ],
+        "hinglish": [
+          "chup ho jao",
+          "chup raho",
+          "bas karo",
+          "mat bolo"
+        ],
+        "hi": [
+          "चुप हो जाओ",
+          "चुप रहो",
+          "बस करो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Okay, I'll be quiet now."
+        ],
+        "hinglish": [
+          "ठीक है, मैं अब चुप रहूँगा।"
+        ]
+      }
+    },
+    {
+      "id": "insult",
+      "patterns": {
+        "en": [
+          "you are stupid",
+          "you are useless",
+          "you are bad",
+          "i hate you"
+        ],
+        "hinglish": [
+          "tum pagal ho",
+          "tum bekar ho",
+          "tum bewakoof ho",
+          "tum ganda ho"
+        ],
+        "hi": [
+          "तुम पागल हो",
+          "तुम बेकार हो",
+          "तुम बेवकूफ़ हो"
+        ]
+      },
+      "replies": {
+        "en": [
+          "I'm sorry if I upset you. I'm still learning, and I'll try to do better."
+        ],
+        "hinglish": [
+          "माफ़ करना अगर मैंने आपको परेशान किया। मैं अभी सीख रहा हूँ, और बेहतर करने की कोशिश करूँगा।"
+        ]
+      }
+    },
+    {
+      "id": "no",
+      "patterns": {
+        "en": [
+          "no",
+          "nope",
+          "not now",
+          "no thanks"
+        ],
+        "hinglish": [
+          "nahi",
+          "nahin",
+          "abhi nahi",
+          "nahi chahiye"
+        ],
+        "hi": [
+          "नहीं",
+          "अभी नहीं",
+          "नहीं चाहिए"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Okay, no problem!"
+        ],
+        "hinglish": [
+          "ठीक है, कोई बात नहीं!"
+        ]
+      }
+    },
+    {
+      "id": "diwali",
+      "patterns": {
+        "en": [
+          "happy diwali"
+        ],
+        "hinglish": [
+          "diwali mubarak",
+          "shubh deepawali",
+          "happy deepawali"
+        ],
+        "hi": [
+          "दिवाली की शुभकामनाएँ",
+          "शुभ दीपावली",
+          "हैप्पी दिवाली"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Happy Diwali! May your home be full of light, sweets and happiness."
+        ],
+        "hinglish": [
+          "दिवाली की बहुत-बहुत शुभकामनाएँ! आपका घर रोशनी, मिठाई और ख़ुशियों से भरा रहे।"
+        ]
+      }
+    },
+    {
+      "id": "holi",
+      "patterns": {
+        "en": [
+          "happy holi"
+        ],
+        "hinglish": [
+          "holi mubarak",
+          "holi ki shubhkamnayein"
+        ],
+        "hi": [
+          "होली की शुभकामनाएँ",
+          "हैप्पी होली"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Happy Holi! May your life be as colourful as the festival."
+        ],
+        "hinglish": [
+          "होली की हार्दिक शुभकामनाएँ! आपकी ज़िंदगी रंगों की तरह ख़ुशहाल रहे।"
+        ]
+      }
+    },
+    {
+      "id": "eid",
+      "patterns": {
+        "en": [
+          "eid mubarak",
+          "happy eid"
+        ],
+        "hinglish": [
+          "eid mubarak ho"
+        ],
+        "hi": [
+          "ईद मुबारक"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Eid Mubarak! Wishing you peace, joy and lots of sweet sevaiyan."
+        ],
+        "hinglish": [
+          "ईद मुबारक! आपको ढेर सारी ख़ुशियाँ और मीठी सेवइयाँ मिलें।"
+        ]
+      }
+    },
+    {
+      "id": "christmas",
+      "patterns": {
+        "en": [
+          "merry christmas",
+          "happy christmas"
+        ],
+        "hinglish": [
+          "christmas mubarak"
+        ],
+        "hi": [
+          "मेरी क्रिसमस",
+          "क्रिसमस की शुभकामनाएँ"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Merry Christmas! May your day be full of joy and love."
+        ],
+        "hinglish": [
+          "मेरी क्रिसमस! आपका दिन प्यार और ख़ुशियों से भरा रहे।"
+        ]
+      }
+    },
+    {
+      "id": "new_year",
+      "patterns": {
+        "en": [
+          "happy new year"
+        ],
+        "hinglish": [
+          "naya saal mubarak",
+          "nav varsh ki shubhkamnayein"
+        ],
+        "hi": [
+          "नया साल मुबारक",
+          "नव वर्ष की शुभकामनाएँ",
+          "हैप्पी न्यू ईयर"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Happy New Year! May this year bring you health and happiness."
+        ],
+        "hinglish": [
+          "नए साल की बहुत-बहुत बधाई! यह साल आपके लिए सेहत और ख़ुशियाँ लेकर आए।"
+        ]
+      }
+    },
+    {
+      "id": "independence_day",
+      "patterns": {
+        "en": [
+          "when is independence day",
+          "happy independence day",
+          "when did india get independence"
+        ],
+        "hinglish": [
+          "azadi kab mili",
+          "independence day kab hai",
+          "swatantrata diwas"
+        ],
+        "hi": [
+          "आज़ादी कब मिली",
+          "स्वतंत्रता दिवस कब है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "India became independent on 15 August 1947. Jai Hind!"
+        ],
+        "hinglish": [
+          "भारत 15 अगस्त 1947 को आज़ाद हुआ था। जय हिंद!"
+        ]
+      }
+    },
+    {
+      "id": "republic_day",
+      "patterns": {
+        "en": [
+          "when is republic day",
+          "happy republic day",
+          "what is republic day"
+        ],
+        "hinglish": [
+          "republic day kab hai",
+          "gantantra diwas"
+        ],
+        "hi": [
+          "गणतंत्र दिवस कब है",
+          "गणतंत्र दिवस"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Republic Day is on 26 January. On this day in 1950, India's Constitution came into effect."
+        ],
+        "hinglish": [
+          "गणतंत्र दिवस 26 जनवरी को होता है। 1950 में इसी दिन भारत का संविधान लागू हुआ था।"
+        ]
+      }
+    },
+    {
+      "id": "capital_india",
+      "patterns": {
+        "en": [
+          "what is the capital of india",
+          "capital of india"
+        ],
+        "hinglish": [
+          "india ki rajdhani",
+          "bharat ki rajdhani kya hai"
+        ],
+        "hi": [
+          "भारत की राजधानी",
+          "भारत की राजधानी क्या है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "The capital of India is New Delhi."
+        ],
+        "hinglish": [
+          "भारत की राजधानी नई दिल्ली है।"
+        ]
+      }
+    },
+    {
+      "id": "national_animal",
+      "patterns": {
+        "en": [
+          "national animal of india",
+          "what is the national animal of india"
+        ],
+        "hinglish": [
+          "rashtriya pashu",
+          "india ka national animal"
+        ],
+        "hi": [
+          "राष्ट्रीय पशु",
+          "भारत का राष्ट्रीय पशु"
+        ]
+      },
+      "replies": {
+        "en": [
+          "The national animal of India is the Bengal tiger."
+        ],
+        "hinglish": [
+          "भारत का राष्ट्रीय पशु बाघ है।"
+        ]
+      }
+    },
+    {
+      "id": "national_bird",
+      "patterns": {
+        "en": [
+          "national bird of india",
+          "what is the national bird of india"
+        ],
+        "hinglish": [
+          "rashtriya pakshi",
+          "india ka national bird"
+        ],
+        "hi": [
+          "राष्ट्रीय पक्षी",
+          "भारत का राष्ट्रीय पक्षी"
+        ]
+      },
+      "replies": {
+        "en": [
+          "The national bird of India is the peacock."
+        ],
+        "hinglish": [
+          "भारत का राष्ट्रीय पक्षी मोर है।"
+        ]
+      }
+    },
+    {
+      "id": "national_flower",
+      "patterns": {
+        "en": [
+          "national flower of india",
+          "what is the national flower of india"
+        ],
+        "hinglish": [
+          "rashtriya phool",
+          "india ka national flower"
+        ],
+        "hi": [
+          "राष्ट्रीय फूल",
+          "भारत का राष्ट्रीय फूल"
+        ]
+      },
+      "replies": {
+        "en": [
+          "The national flower of India is the lotus."
+        ],
+        "hinglish": [
+          "भारत का राष्ट्रीय फूल कमल है।"
+        ]
+      }
+    },
+    {
+      "id": "gandhi",
+      "patterns": {
+        "en": [
+          "who is mahatma gandhi",
+          "who was gandhi",
+          "tell me about gandhi"
+        ],
+        "hinglish": [
+          "gandhi ji kaun the",
+          "mahatma gandhi kaun the"
+        ],
+        "hi": [
+          "गांधी जी कौन थे",
+          "महात्मा गांधी कौन थे"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Mahatma Gandhi led India's freedom struggle through non-violence. He was born on 2 October 1869 and is called the Father of the Nation."
+        ],
+        "hinglish": [
+          "महात्मा गांधी ने अहिंसा के रास्ते से भारत की आज़ादी की लड़ाई का नेतृत्व किया। उनका जन्म 2 अक्टूबर 1869 को हुआ था, और उन्हें राष्ट्रपिता कहा जाता है।"
+        ]
+      }
+    },
+    {
+      "id": "largest_planet",
+      "patterns": {
+        "en": [
+          "what is the largest planet",
+          "biggest planet",
+          "largest planet"
+        ],
+        "hinglish": [
+          "sabse bada grah",
+          "sabse bada planet kaunsa hai"
+        ],
+        "hi": [
+          "सबसे बड़ा ग्रह",
+          "सबसे बड़ा ग्रह कौन सा है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Jupiter is the largest planet in our solar system."
+        ],
+        "hinglish": [
+          "हमारे सौरमंडल का सबसे बड़ा ग्रह बृहस्पति है।"
+        ]
+      }
+    },
+    {
+      "id": "moon_distance",
+      "patterns": {
+        "en": [
+          "how far is the moon",
+          "distance to the moon"
+        ],
+        "hinglish": [
+          "chaand kitni door hai",
+          "chand kitna door hai"
+        ],
+        "hi": [
+          "चाँद कितनी दूर है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "The Moon is about three lakh eighty four thousand kilometres away from Earth."
+        ],
+        "hinglish": [
+          "चाँद पृथ्वी से लगभग तीन लाख चौरासी हज़ार किलोमीटर दूर है।"
+        ]
+      }
+    },
+    {
+      "id": "what_is_sun",
+      "patterns": {
+        "en": [
+          "what is the sun",
+          "is the sun a star",
+          "how far is the sun"
+        ],
+        "hinglish": [
+          "suraj kya hai",
+          "kya suraj tara hai"
+        ],
+        "hi": [
+          "सूरज क्या है",
+          "क्या सूरज एक तारा है"
+        ]
+      },
+      "replies": {
+        "en": [
+          "The Sun is a star! Its light takes about eight minutes to reach Earth."
+        ],
+        "hinglish": [
+          "सूरज एक तारा है! उसकी रोशनी को पृथ्वी तक पहुँचने में लगभग आठ मिनट लगते हैं।"
+        ]
+      }
+    },
+    {
+      "id": "days_in_year",
+      "patterns": {
+        "en": [
+          "how many days in a year",
+          "how many days are there in a year"
+        ],
+        "hinglish": [
+          "saal mein kitne din",
+          "ek saal mein kitne din hote hain"
+        ],
+        "hi": [
+          "साल में कितने दिन",
+          "एक साल में कितने दिन होते हैं"
+        ]
+      },
+      "replies": {
+        "en": [
+          "A year has 365 days, and a leap year has 366."
+        ],
+        "hinglish": [
+          "एक साल में 365 दिन होते हैं, और लीप ईयर में 366।"
+        ]
+      }
+    },
+    {
+      "id": "highest_mountain",
+      "patterns": {
+        "en": [
+          "highest mountain in the world",
+          "which is the highest mountain",
+          "how tall is mount everest"
+        ],
+        "hinglish": [
+          "sabse uncha pahad",
+          "duniya ka sabse uncha parvat"
+        ],
+        "hi": [
+          "सबसे ऊँचा पहाड़",
+          "दुनिया का सबसे ऊँचा पर्वत"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Mount Everest is the highest mountain in the world, about 8,849 metres tall."
+        ],
+        "hinglish": [
+          "दुनिया का सबसे ऊँचा पर्वत माउंट एवरेस्ट है, लगभग 8849 मीटर ऊँचा।"
+        ]
+      }
+    },
+    {
+      "id": "longest_river_india",
+      "patterns": {
+        "en": [
+          "longest river in india",
+          "which is the longest river in india"
+        ],
+        "hinglish": [
+          "india ki sabse lambi nadi",
+          "bharat ki sabse lambi nadi"
+        ],
+        "hi": [
+          "भारत की सबसे लंबी नदी"
+        ]
+      },
+      "replies": {
+        "en": [
+          "The Ganga is the longest river in India, about 2,525 kilometres long."
+        ],
+        "hinglish": [
+          "भारत की सबसे लंबी नदी गंगा है, लगभग 2525 किलोमीटर लंबी।"
+        ]
+      }
+    },
+    {
+      "id": "light_bulb",
+      "patterns": {
+        "en": [
+          "who invented the light bulb",
+          "who invented the bulb"
+        ],
+        "hinglish": [
+          "bulb kisne banaya",
+          "bulb ka avishkar kisne kiya"
+        ],
+        "hi": [
+          "बल्ब का आविष्कार किसने किया",
+          "बल्ब किसने बनाया"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Thomas Edison made the first practical light bulb, in 1879."
+        ],
+        "hinglish": [
+          "पहला काम का बल्ब थॉमस एडिसन ने 1879 में बनाया था।"
+        ]
+      }
+    },
+    {
+      "id": "telephone",
+      "patterns": {
+        "en": [
+          "who invented the telephone",
+          "who made the telephone"
+        ],
+        "hinglish": [
+          "telephone kisne banaya",
+          "phone ka avishkar kisne kiya"
+        ],
+        "hi": [
+          "टेलीफ़ोन का आविष्कार किसने किया",
+          "टेलीफ़ोन किसने बनाया"
+        ]
+      },
+      "replies": {
+        "en": [
+          "Alexander Graham Bell is credited with inventing the telephone, in 1876."
+        ],
+        "hinglish": [
+          "टेलीफ़ोन के आविष्कार का श्रेय अलेक्ज़ेंडर ग्राहम बेल को जाता है, 1876 में।"
+        ]
+      }
+    }
+  ],
+  "fallback": {
+    "en": [
+      "Sorry, I didn't quite get that. Could you say it again?",
+      "Hmm, I'm not sure about that one. Can you ask me another way?"
+    ],
+    "hinglish": [
+      "माफ़ करना, मैं समझा नहीं। एक बार फिर से बोलो?",
+      "हम्म, यह मुझे नहीं पता। थोड़ा अलग तरीके से पूछोगे?"
+    ]
+  }
+}

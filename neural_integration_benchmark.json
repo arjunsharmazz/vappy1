@@ -1,0 +1,62 @@
+{
+  "frames": [
+    {
+      "name": "neutral",
+      "seconds": 8.3173554999521
+    },
+    {
+      "name": "smile",
+      "seconds": 6.3346875999704935
+    },
+    {
+      "name": "speech",
+      "seconds": 10.051167600031476
+    }
+  ],
+  "mode": "CPU, 128px, real inference",
+  "model": {
+    "model": "LivePortrait",
+    "device": "cpu",
+    "runtime": "2.6.0+cpu",
+    "load_seconds": 6.414098899986129,
+    "model_bytes": 519927141,
+    "rss_bytes": 997761024,
+    "revision": "9b294b3d0536135442ea73cb01e6cb3ca7029dd3"
+  },
+  "status": "passed",
+  "peak_rss_bytes": 1128046592,
+  "api_check": {
+    "status": "passed",
+    "job": {
+      "job_id": "18ac0361-5b73-4f64-b739-e8736a5fb96d",
+      "avatar_id": "1e471425-e2ad-440a-a96f-36848350df8c",
+      "state": "READY",
+      "progress": 1,
+      "cached": false,
+      "cache_key": "b8e212a8bf21791cd5ac226dc1e1f9687387ae2519e450fa99b1473669426fc6",
+      "quality": "fast",
+      "action": "SMILE",
+      "playback_mode": "PRE-RENDER",
+      "model": {
+        "model": "LivePortrait",
+        "device": "cpu",
+        "runtime": "2.6.0+cpu",
+        "load_seconds": 5.317153199983295,
+        "model_bytes": 519927141,
+        "rss_bytes": 997675008,
+        "revision": "9b294b3d0536135442ea73cb01e6cb3ca7029dd3"
+      },
+      "total_frames": 4,
+      "frame": 4,
+      "rss_bytes": 1112805376,
+      "generation_seconds": 24.49810600001365,
+      "mean_frame_seconds": 6.085371024979395,
+      "duration": 1.0,
+      "preprocessing_seconds": 1.6315878999885172,
+      "video_url": "/avatar/1e471425-e2ad-440a-a96f-36848350df8c/neural/cache/b8e212a8bf21791cd5ac226dc1e1f9687387ae2519e450fa99b1473669426fc6"
+    },
+    "video_bytes": 94680,
+    "cache_hit": true,
+    "cancelled": true
+  }
+}

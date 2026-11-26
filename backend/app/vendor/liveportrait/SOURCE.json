@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/KlingAIResearch/LivePortrait.git",
+  "commit": "9b294b3d0536135442ea73cb01e6cb3ca7029dd3",
+  "license": "../licenses/LivePortrait.txt",
+  "changes": "Selected modules copied unmodified; imported through the application vendor package. CPU wrapper is application code.",
+  "model_weights": "Existing .tools/neural-evaluation/weights; checked against weights.json SHA-256 values at load."
+}

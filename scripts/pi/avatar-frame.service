@@ -1,0 +1,17 @@
+[Unit]
+Description=AI Avatar Frame (backend + web page on port 8000)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=__USER__
+WorkingDirectory=__ROOT__/backend
+ExecStart=__ROOT__/backend/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+Environment=PYTHONUNBUFFERED=1
+# Slightly lower priority than the browser, so the face animation stays smooth.
+Nice=5
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
